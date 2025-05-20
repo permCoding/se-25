@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Tests</title>
+
+    <!-- стили Mocha для красивого отображения результатов -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.css">
+    <style> #mocha { margin: 20px; } </style>
+    
+    <!-- Подключаем библиотеки -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"></script>    
+</head>
+
+<body>
+
+    <div id="mocha"></div> <!-- контейнер для результатов тестов -->
+
+    <script> // настраиваем объект для тестирования
+        mocha.setup('bdd');
+        const assert = chai.assert;
+    </script>
+
+    <script src="utils.js"></script> <!-- модуль с тестируемыми функциями -->
+    <script src="tests.js"></script> <!-- модуль с тестами -->
+    
+    <script> // запускаем тесты
+        mocha.run(); 
+    </script>
+
+</body>
+</html>
