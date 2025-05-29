@@ -9,8 +9,8 @@ const arr = [1, 2, 3, 77, 9];
 console.log(arr);
 console.log(arr.valueOf());
 
-console.log(arr.toString());
-console.log(arr + 5);
+console.log(arr.toString());  // 1,2,3,77,9
+console.log(arr + 5);  // 1,2,3,77,95
 
 // = = = = = = = 
 
