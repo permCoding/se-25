@@ -11,3 +11,17 @@ console.log(String(j).padStart(3, ' '), '=>', alp[j]);
 
 console.log(('' + j).padStart(3, ' '), '=>', alp[j]);
 console.log(`${j}`.padStart(3, ' '), '=>', alp[j]);
+
+// = = = = = = = 
+
+// String.prototype.print = () => {
+//     console.log(this);
+// }  // так не работает - нет this у стрел функц
+
+String.prototype.print = function() {
+    console.log(this);  // [String: 'GHBDRES']
+    console.log(this.toString());  // GHBDRES
+    console.log(`${this}`);  // GHBDRES
+}
+
+str.print();
