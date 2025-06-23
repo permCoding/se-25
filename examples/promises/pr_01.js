@@ -22,4 +22,4 @@ const ex_01 = () => new Promise(callback);
 ex_01()
     .then(value => log(value))
     .catch(error => log(error))
-    .finally(() => log('>> end of the test'));
+    .finally(() => log(`>> end of the test - ${i}`));
