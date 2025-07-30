@@ -1,8 +1,7 @@
 const log = console.log;
 const data = require('./gr_01.json');
 
-const get_pairs = () => {
-    const ids = data.vertices.map(item => item.id);
+const get_pairs = (ids) => {
     let pairs = [];
     for (let id of ids) {
         for (let item of data.edges) {
@@ -17,5 +16,14 @@ const get_pairs = () => {
     return pairs;
 }
 
-log(get_pairs());
+const ids = data.vertices.map(item => item.id);
+let pairs = get_pairs(ids);
 // log(JSON.stringify(pairs, null, 4));
+
+let solver = [];
+while (ids.length > 0) {
+    let v = ids.shift();
+    solver.push(v);
+}
+
+log(solver);
