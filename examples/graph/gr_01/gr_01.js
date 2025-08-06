@@ -21,9 +21,24 @@ let pairs = get_pairs(ids);
 // log(JSON.stringify(pairs, null, 4));
 
 let solver = [];
-while (ids.length > 0) {
-    let v = ids.shift();
-    solver.push(v);
-}
+let v = ids.shift();
+solver.push(v);
 
-log(solver);
+let v_min = pairs
+    .filter(x => x[1] == v)
+    // .map(x => log(x));
+    .reduce((min, cur) => cur.d < min.d? cur: min);
+let v_add = v_min[2];
+solver.push(v_add);
+log(v, v_min, v_add, solver);
+
+
+// while (ids.length > 0) {
+//     for (let s of solver) {
+//         s[1]
+//     }
+//     let v = ids.shift();
+//     solver.push(v);
+// }
+
+// log(solver);
