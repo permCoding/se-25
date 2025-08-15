@@ -2,7 +2,7 @@ let arr_d = [1, 2, 3];
 console.log(arr_d);
 arr_d.reverse(); // работает на месте
 console.log(arr_d.join()); // соединяет по запятой
-
+console.log(arr_d.join(' ')); // соединяет по запятой
 
 let arr = new Array(5);
 console.log(arr);
