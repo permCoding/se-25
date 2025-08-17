@@ -26,6 +26,7 @@ while (i < arr.length) { // можно перебирать НЕ по индек
         i++;
     }
 }
+
 console.log(solver, solver.length);
 let amount_items = Object
     .keys(solver)
