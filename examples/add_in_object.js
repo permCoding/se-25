@@ -22,5 +22,5 @@ const indexAdd = arr.findIndex(u => u.id === 1003);
 if (indexAdd >= 0) {
     arr[indexAdd] = { ...arr[indexAdd], ...addFields}
 }
-
 console.log(arr);
+arr.forEach((item, index) => { console.log(JSON.stringify(item, null, 4)) });
