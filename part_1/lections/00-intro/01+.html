@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS</title>
+        <style>
+            input[type="text"] {
+                height: 2em;
+                font-size: larger;
+                background-color: bisque;
+            }
+        </style>  
+    </head>
+    <body>
+
+        <input type="text" name="" id="test"> <br>
+        <input type="text" name="" id="answer">
+
+        <script>
+            let test = document.getElementById("test");
+            test.onclick = function () { test.value = '1234567890'; }
+            test.oncopy = function () {
+                const selectedText = window.getSelection().toString();
+                document.getElementById("answer").value = selectedText;
+                console.log(`copy to answer - ${selectedText}`);
+            }
+        </script>
+
+    </body>
+</html>
