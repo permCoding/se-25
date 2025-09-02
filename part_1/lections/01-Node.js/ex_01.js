@@ -1,37 +1,19 @@
-const log = console.log;
-
-const ex_01 = () => { // Without closure (all timeouts will 5)
-    const arr = [];
-    for (var i = 0; i < 5; i++) {
-        setTimeout(() => { 
-            arr.push(i);
-            log(arr);
-        }, 100); // All will 5
-    }
+function funcA(value) {
+    console.log(value**2)
 }
 
-const ex_02 = () => { // Modern solution using let (block-scoped)
-    const arr = [];
-    for (let i = 0; i < 5; i++) {
-        setTimeout(() => { 
-            arr.push(i);
-            log(arr);
-        }, 100); // All will 5
-    }
-}
+const funcB = () => {};
 
-ex_03 = () => { // With closure to capture current value
-    const arr = [];
-    for (var i = 0; i < 5; i++) {
-        (function(currentIndex) {
-            setTimeout(() => {
-                arr.push(currentIndex); // 0,1,2,3,4
-                log(arr);
-            }, 100);
-        })(i);
-    }
-}
+let n = 10;
 
-// ex_01();
-// ex_02();
-ex_03();
+(function(value) {
+    console.log(value**2)
+})(n); // замыкание для переменной n
+
+(value => console.log(value**3))(n);
+
+/*
+До появления let и const (ES6) IIFE - Immediately Invoked Function Expression
+был основным способом создания блочной области видимости
+с изоляцией переменных и функций
+*/
