@@ -14,6 +14,7 @@ function fib(n) {
 }
 
 // console.log(fib(10));
+console.log(fib(33));
 // console.log(fib(100)); // тут нужно добавить кэширование
 
 let count = 0;
@@ -22,8 +23,8 @@ function rec(n) {
     rec();
 }
 
-rec();
- // 10240 = 10 kB - это по умолчанию
+// rec();
+// 10240 = 10 kB - это по умолчанию
 console.log(10 * 2**10);
 // node --stack-size=1024 rec01.js
 // node --stack-size=512 rec01.js
