@@ -8,3 +8,5 @@ logA();
 setTimeout(logB, 0);
 Promise.resolve().then(logC);
 logD();
+
+// https://www.jsv9000.app/
