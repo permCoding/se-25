@@ -1,10 +1,17 @@
 const log = console.log;
 
+// const links = [
+//     'https://pcoding.ru/csv/17.txt',
+//     'https://pcoding.ru/csv/18.txt',
+//     'https://pcoding.ru/csv/19.txt',
+//     'https://pcoding.ru/csv/20.txt'
+// ];
+
 const links = [
-    'https://pcoding.ru/csv/17.txt',
-    'https://pcoding.ru/csv/18.txt',
-    'https://pcoding.ru/csv/19.txt',
-    'https://pcoding.ru/csv/20.txt'
+    'http://pcoding-ru.1gb.ru/csv/17.txt',
+    'http://pcoding-ru.1gb.ru/csv/18.txt',
+    'http://pcoding-ru.1gb.ru/csv/19.txt',
+    'http://pcoding-ru.1gb.ru/csv/20.txt'
 ];
 
 const delayedCallback = async () => {
@@ -15,4 +22,4 @@ const delayedCallback = async () => {
     } // так последовательность будет соблюдаться
 };
 
-delayedCallback();
+delayedCallback(); // сколько строк в каждом из файлов

@@ -1,11 +1,9 @@
 const log = console.log;
 
-const links = [
-    'https://pcoding.ru/csv/17.txt',
-    'https://pcoding.ru/csv/18.txt',
-    'https://pcoding.ru/csv/19.txt',
-    'https://pcoding.ru/csv/20.txt'
-]
+const links = require('fs')
+    .readFileSync('links.txt', 'utf-8')
+    .split(/\r?\n/)
+    .filter(Boolean);
 
 links
     .map((url, ind) => fetch(url)
