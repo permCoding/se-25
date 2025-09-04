@@ -4,7 +4,7 @@ Software Engineering Node.js 2025-2026
 
 [Кабинет BBB](https://bbb.psaa.ru/rooms/4hq-uur-7nl-kgz/join)  
 [Рейтинг группы ПИб-3](https://)  
-[Рейтинг группы ПИнб-3](https://)  
+[Рейтинг группы ПИнб-3](https://docs.google.com/spreadsheets/d/1csYKAOGan5wT19sZtu5vktLnZsWQtMWQZZ1gsG3TysQ/edit?usp=sharing)  
 
 ---  
 
