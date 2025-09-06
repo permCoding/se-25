@@ -50,6 +50,7 @@ JS - язык:
 
 ### docs  
 
+> [Современный учебник JS - онлайн](https://learn.javascript.ru/)  
 > [ECMAScript 6 Edition - 2015](https://262.ecma-international.org/6.0/#sec-ecmascript-data-types-and-values)  
 > [Описание языка JS MDN - Mozilla Developer Network](https://developer.mozilla.org/ru/docs/Web/JavaScript)  
 > [Учебные материалы JS MDN - Mozilla Developer Network](https://developer.mozilla.org/ru/docs/Learn/JavaScript)  
