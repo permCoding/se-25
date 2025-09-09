@@ -5,7 +5,7 @@ Software Engineering Node.js 2025-2026
 > Беляков Андрей Юрьевич  
 
 [Кабинет BBB](https://bbb.psaa.ru/rooms/4hq-uur-7nl-kgz/join)  
-[Рейтинг группы ПИб-3](https://)  
+[Рейтинг группы ПИб-3](https://docs.google.com/spreadsheets/d/1BDahJ7VkDGgw8nfKyquh5hK6vz7t0NBOD3vA8jyBA7k/edit?usp=sharing)  
 [Рейтинг группы ПИнб-3](https://docs.google.com/spreadsheets/d/1csYKAOGan5wT19sZtu5vktLnZsWQtMWQZZ1gsG3TysQ/edit?usp=sharing)  
 
 ---  
