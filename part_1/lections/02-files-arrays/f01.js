@@ -1,0 +1,13 @@
+/* на вход в программу подаются строки
+в каждой строке одно натуральное число
+найти максимальное нечётное число */
+
+const lines = require('fs')
+    .readFileSync('./files/01.txt', 'utf8')
+    .split('\n');
+
+let nums = lines
+    .map(Number)
+    .filter(x => x%2);
+
+console.log(Math.max(...nums));
