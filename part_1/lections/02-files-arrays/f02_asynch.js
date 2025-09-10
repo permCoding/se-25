@@ -4,6 +4,8 @@
 
 const fs = require('fs');
 
+console.log('start');
+
 fs.readFile('./files/01.txt', 'utf8', (err, data) => {
     if (err) throw err;
     
@@ -15,3 +17,11 @@ fs.readFile('./files/01.txt', 'utf8', (err, data) => {
 
     console.log(result);
 });
+
+console.log('finish');
+
+/*
+start
+finish
+55
+*/
