@@ -100,6 +100,27 @@ nvm use v14  // если несколько версий, то можно пер
 - https://nodejs.org/dist/latest-v18.x/docs/api/cli.html#--watch
 - можно использ пути (на MacOS и Win): node --watch-=./tests --watch index.js
 
+- инициализировать проект и создать package.json
+npm init
+- инициализировать проект и создать package.json с параметрами по умолчанию
+npm init -y
+- для смены типа проекта поле type: commonjs или module - это ES-модуль 
+- в commonjs - require, а в module - import
+```
+
+```js
+{
+  "name": "files",
+  "version": "1.0.0",
+  "description": "работа с файлами",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
 ```
 
 ```txt
