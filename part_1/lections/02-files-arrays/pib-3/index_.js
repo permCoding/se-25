@@ -12,8 +12,14 @@ const index = (req, resp) => {
 
 const filename = (req, resp) => {
     const lines = getLines(dirFiles + req.params.filename);
-    resp.set('Content-Type', 'text/html');
-    resp.send(lines.join('<br>'));
+    resp.set('Content-Type', 'text/plain');
+    const pairs = lines
+        .map(line => line.split(' '))
+        .map(pair => [pair[0], +pair[1]]);
+    const obj = Object.fromEntries(pairs);
+    const json = JSON.stringify(obj, null, 4);
+    console.log(json);
+    resp.send(json);
 };
 
 const listen = () => { 
