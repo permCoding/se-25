@@ -8,16 +8,16 @@ function binToDec(bin, p = 0) {
     return binToDec(bin.slice(0, -1), p+1) +  +bin.slice(-1) * 2**p;
 }
 
-const ToDec = (bin, base=2, p=0) => 
-    bin? ToDec(bin.slice(0, -1), base, p+1) + +(bin.slice(-1)) * base**p: 0;
+const toDec = (bin, base=2, p=0) => 
+    bin? toDec(bin.slice(0, -1), base, p+1) + +(bin.slice(-1)) * base**p: 0;
 
 
 console.log(binToDec_('1101'));
 console.log(binToDec('1101'));
-console.log(ToDec('1101'));
-console.log(ToDec('1101', 2));
-console.log(ToDec('10', 8));
-console.log(ToDec('12', 8));
+console.log(toDec('1101'));
+console.log(toDec('1101', 2));
+console.log(toDec('10', 8));
+console.log(toDec('12', 8));
 console.log((13).toString(2));
 
 
