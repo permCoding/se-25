@@ -5,6 +5,9 @@ const arr = fs
     .trim('\n')
     .split(' ');
 
-for (let i=0; i < )
-
-console.log(arr); // [ '12312', '324324', '575' ]
+for (let i=0; i < arr.length; i++) {
+    if (Number(arr[i]) % 2 === 0) {
+        console.log(arr);
+        break;
+    }
+}
