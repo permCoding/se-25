@@ -9,6 +9,7 @@ app.get('/:filename', (req, res) => {
     try {
         let path = `./files/${req.params.filename}`;
         let lines = getLines(path);
+        // writeToFile('_' + path, lines);
         res.type('text/html');
         res.send(`${lines.join('<br>')}`);        
     } catch (error) {
