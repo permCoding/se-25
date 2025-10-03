@@ -3,14 +3,13 @@ const { HOST, PORT } = { "HOST": "localhost", "PORT": 3000 };
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // читать объекты в POST
+app.use(express.urlencoded({ extended: true }));
 
 app.post('/', (req, res) => {
     let { inputNumber } = req.body;  // данные берутся из объекта body
     let hex = Number(inputNumber).toString(16).toUpperCase();
-    res.send(`результат -> ${hex}
-        <br>
-        <a href="/" class="btn-style">На главную</a>`
+    res.send(`результат -> ${hex}<br>
+        <a href="/">На главную</a>`
     );
 });
 
@@ -25,14 +24,3 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}/`));
-
-/*
-<!-- 
-    в каждом объекте на web-форме должен быть атрибут
-    "name", по которому и будет добавляться поле
-    в объект req.body - из него уже на строне сервера
-    можно будет получить значение, например:
-    если на web-форме - name="lastName" 
-    то в объекте - req.body.lastName = "____"
--->
-*/

@@ -1,5 +1,5 @@
 const express = require('express'); // npm i express
-const { HOST, PORT } = { "HOST": "localhost", "PORT": 3000 };
+const { HOST, PORT } = require('./env.json');
 
 const app = express();
 const html = `
