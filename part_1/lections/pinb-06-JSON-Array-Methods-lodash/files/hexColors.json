@@ -1,0 +1,34 @@
+[
+    {
+        "color": "aliceblue",
+        "hex_name": "#f0f8ff"
+    },
+    {
+        "color": "antiquewhite",
+        "hex_name": "#faebd7"
+    },
+    {
+        "color": "aqua",
+        "hex_name": "#00ffff"
+    },
+    {
+        "color": "aquamarine",
+        "hex_name": "#7fffd4"
+    },
+    {
+        "color": "azure",
+        "hex_name": "#f0ffff"
+    },
+    {
+        "color": "beige",
+        "hex_name": "#f5f5dc"
+    },
+    {
+        "color": "bisque",
+        "hex_name": "#ffe4c4"
+    },
+    {
+        "color": "black",
+        "hex_name": "#000000"
+    }
+]
