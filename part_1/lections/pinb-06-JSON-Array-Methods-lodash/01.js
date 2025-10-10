@@ -9,12 +9,13 @@ const getAndSaveJSON = (url, filename) => {
             throw new Error(`Ошибка HTTP: ${response.statusCode}`);
         }
         
-        const content = response.getBody('utf8');
-        
+        const content = response.getBody('utf8');        
         const jsonArray = JSON.parse(content); 
+
         if (jsonArray.length > 0) {
             fs.writeFileSync(filename, content, 'utf8');
         }
+        
         return jsonArray;
     } catch (error) {
         console.error('Ошибка:', error.message);
@@ -24,7 +25,7 @@ const getAndSaveJSON = (url, filename) => {
 
 
 const obects = getAndSaveJSON(
-    'http://pcoding-ru.1gb.ru/json/abiturs.json',
+    'http://perm.1gb.ru/json/abiturs.json',
     './files/abiturs.json'
 );
 
