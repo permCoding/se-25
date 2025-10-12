@@ -1,7 +1,9 @@
 const request = require('sync-request');
 const log = console.log;
 
-const API_KEY = ''; // Замените на свой
+require('dotenv').config();
+const API_KEY = process.env.API_KEY_OpenWeather;
+
 const host = 'http://api.openweathermap.org/data/2.5/weather';
 
 const getWeatherForCity = (city) => {
