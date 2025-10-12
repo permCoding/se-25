@@ -1,5 +1,4 @@
 const syncRequest = require('sync-request');
-const fs = require('fs');
 
 const headersForGitHub = {
     headers: {
@@ -19,7 +18,10 @@ const getFollowers = (url) => {
 };
 
 setTimeout(() => {
-    const followers = getFollowers('https://api.github.com/users/permCoding/followers');
+    const url = 'https://api.github.com/users/permCoding/followers';
+    const followers = getFollowers(url);
     console.log(`Получено объектов: ${followers.length}`);
-    followers.sort((a,b) => a.login>b.login? +1: -1).forEach((follower) => console.log(follower.login));
+    followers
+        .sort((a,b) => a.login>b.login? +1: -1)
+        .forEach((follower) => console.log(follower.login));
 }, 60000);
