@@ -1,0 +1,17 @@
+{
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+        "accept": "*/*",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "priority": "u=1, i",
+        "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site",
+        "x-pow": "2|site_29c387f2f5624b6f9a03ebac4e8fc9d3|1760280035|8,8,1,cc9f1e000000000,a296dc86-5039-4d2d-8bcd-42d551a17039,99355d9b-dd4c-44e3-879f-c46fec53332d,1760280233,1,1bx4OWDplGBbXJKfpVdb+nGt6tkuf+v2693bZc5ck4Y=,569985273f784e9a2110fc345ce06fbf049ac64ff18e38f31d359baa4fa9c0ee2419844a2a7e7c1196da826e2fb8da04af6891f8bd9df98695706b764c30b489|2",
+        "x-queryid": "qid110049899176028003420251012151304",
+        "x-userid": "0"
+    }
+}
