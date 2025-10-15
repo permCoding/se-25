@@ -58,7 +58,7 @@ Array Methods
 
 ---  
 
-### task_02
+### task_03
 
 Прочитать `students.json`  
 Отсортировать по двум параметрам:  
