@@ -30,12 +30,21 @@ const saveImg = (url, ind) => {
     fs.writeFileSync(savePath, data);
 }
 
+/* метод forEach не работает с асинхронными функциями
 const downloadImages = async (links, delay = 1200) => {
     links.forEach(async (link, ind) => {
         saveImg(link, ind);
         await sleep(delay); // пауза между запросами        
     });
-}
+}*/
+
+// заменяем на цикл for 
+const downloadImages = async (links, delay = 1200) => {
+    for (let i = 0; i < links.length; i++) {
+        saveImg(links[i], i);
+        await sleep(delay); // можно убрать последнюю пазузу
+    }
+};
 
 let prodFind = 'Гегель'; // тут ваш запрос на поиск товара
 let prodFindEncoded = encodeURIComponent(prodFind); // кодируем запрос для корректного отображения в url
