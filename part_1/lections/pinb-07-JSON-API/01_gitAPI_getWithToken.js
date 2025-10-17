@@ -36,7 +36,12 @@ const getFollowers = (url) => {
 const followers = getFollowers('https://api.github.com/users/permCoding/followers');
 
 console.log(`Получено объектов: ${followers.length}`);
-followers.sort((a,b) => a.login>b.login? +1: -1).forEach((follower) => console.log(follower.login));
+followers
+  .sort((a,b) => a.login>b.login? +1: -1)
+  .forEach((follower) => console.log(follower.login));
+
+
+
 /*         пример вывода:
 Получено объектов: 30
 AleksandrNikolaev159

@@ -16,7 +16,7 @@ try {
     log(`Погода в ${jsonData.name}:`);
     log(`Температура: ${jsonData.main.temp}°C`);
     log(`Описание: ${jsonData.weather[0].description}`);
-    log(`Координаты: ${jsonData.coord.lat}, ${jsonData.coord.lon}`);
+    log(`Координаты: ${jsonData.coord['lat']}, ${jsonData.coord.lon}`);
 } catch (error) {
     console.error('Ошибка:', error.message);
 }
