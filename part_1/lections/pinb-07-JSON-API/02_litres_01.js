@@ -9,8 +9,9 @@ const getProducts = (url) => {
 let prodFind = 'Гегель'; // тут ваш запрос на поиск товара
 let prodFindEncoded = encodeURIComponent(prodFind); // кодируем запрос для корректного отображения в url
 
+let amount = 4;
 let host = 'https://api.litres.ru/foundation/api/search';
-let params = `is_for_pda=false&limit=12&offset=0&q=${prodFindEncoded}&show_unavailable=false&types=text_book`;
+let params = `is_for_pda=false&limit=${amount}&offset=0&q=${prodFindEncoded}&show_unavailable=false&types=text_book`;
 let url = `${host}?${params}`;
 let json = getProducts(url).payload.data;
 
