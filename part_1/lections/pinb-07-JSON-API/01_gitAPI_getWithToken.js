@@ -12,8 +12,9 @@
 
 const syncRequest = require('sync-request');
 const fs = require('fs');
+require('dotenv').config();
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // брать тут https://github.com/settings/tokens
 
-const GITHUB_TOKEN = 'тут ваш токен'; // брать тут https://github.com/settings/tokens
 const headersForGitHub = {
     headers: {
         'User-Agent': 'Node.js', // обязательный заголовок - GitHub
