@@ -1,4 +1,4 @@
-const syncRequest = require('sync-request');
+const syncRequest = require('sync-request'); // npm i sync-request
 
 const url = 'http://perm.1gb.ru/txt/labrab04-1.txt';
 

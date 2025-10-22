@@ -4,4 +4,6 @@ const filename = './files/content.txt';
 
 const content = fs.readFileSync(filename, 'utf8');
 
-console.log(content.split('\n').length);
+const lines = content.split('\n').filter(line => line.trim()); // line.length > 0
+console.log(lines);
+console.log(lines.length);
