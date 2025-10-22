@@ -14,6 +14,6 @@ const getLinesFromUrl = (url) => {
 
 
 
-const url = 'http://perm.1gb.ru/txt/labrab04-1.txt';
+const url = 'http://perm.1gb.ru/txt/labrab04-3.txt';
 const lines = getLinesFromUrl(url);
 console.log(lines);
