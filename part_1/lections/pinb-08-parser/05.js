@@ -1,41 +1,27 @@
-const puppeteer = require('puppeteer'); // npm i puppeteer
-const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
-const params = {
-    headless: true,
-    args: [`--user-agent=${userAgent}`]
-};
-const url = 'https://www.gismeteo.ru/weather-perm-4476/now/';
+const cheerio = require('cheerio');
 
-(async () => {
-    const browser = await puppeteer.launch(params);
-    const page = await browser.newPage();
-    
-    await page.goto(url, { waitUntil: 'networkidle2' });
+const html = `
+    <table>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Python</td>
+            </tr>
+            <tr name="last">
+                <td>2</td>
+                <td>Java</td>
+            </tr>
+        </tbody>
+    </table>`;
 
-    await page.waitForSelector('temperature-value', { timeout: 3000 });
+const $ = cheerio.load(html);
 
-    const tempData = await page.evaluate(() => {
-        const date = document.querySelector('.now-localdate');
-        const title = document.querySelector('.page-title');
-        const temp = document.querySelector('temperature-value');
-        return { 
-            date: date ? date.textContent.trim() : null,
-            title: title ? title.textContent.trim() : null,
-            temp: temp ? temp.textContent.trim() : null
-        }
-    });
+const row = $('tr[name="last"]'); // найти все tr внутри всех tbody
 
-    console.log(tempData);
+const result = row
+    .find('td')
+    .map((_, e) => $(e).text().trim())
+    .get()
+    .join(' ');
 
-    await browser.close();
-})();
-
-/*
-<div class="page-title">Погода в Перми сейчас
-
-<div class="now-localdate" data-pattern="D, j F, G:i">сб, 11 октября, 12:02</div>
-
-<div class="now-weather">
-    <temperature-value value="6" from-unit="c" reactive="">+6</temperature-value>
-</div>
-*/
+console.log(result);

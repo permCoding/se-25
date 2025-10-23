@@ -7,7 +7,7 @@ const html = `
                 <td>1</td>
                 <td>Python</td>
             </tr>
-            <tr name"last">
+            <tr>
                 <td>2</td>
                 <td>Java</td>
             </tr>
@@ -16,14 +16,14 @@ const html = `
 
 const $ = cheerio.load(html);
 
-const rows = $('tbody tr'); // найти все tr внутри всех tbody
+// найти tr внутри tbody и выбрать первый
+const row = $('tbody > tr:first');
+// const row = $('tbody > tr').first();
 
-rows.each((i, row) => {
-    console.log(
-        $(row)
-            .find('td')
-            .map((_, e) => $(e).text().trim())
-            .get()
-            .join(' ')
-    );
-});
+const result = row
+    .find('td')
+    .map((_, e) => $(e).text().trim())
+    .get()
+    .join(' ');
+
+console.log(result); // Вывод: "1 Python"
