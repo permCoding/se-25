@@ -1,4 +1,4 @@
-## LABRAB-05 API JSON
+## LABRAB-06 API JSON
 
 ### Собираем данные с сайта wb.ru  
 

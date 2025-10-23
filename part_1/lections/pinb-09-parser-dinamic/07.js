@@ -1,10 +1,7 @@
 const puppeteer = require('puppeteer');
 
 const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
-const params = {
-    headless: true,
-    args: [`--user-agent=${userAgent}`]
-};
+const params = { headless: true, args: [`--user-agent=${userAgent}`] };
 const host = 'https://www.gismeteo.ru/'
 const cities = {
     'Perm': 'weather-perm-4476/', 
