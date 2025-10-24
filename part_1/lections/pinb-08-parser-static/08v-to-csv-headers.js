@@ -7,9 +7,11 @@ const html = request('GET', url).getBody('utf8');
 
 const $ = cheerio.load(html);
 
-const headers = [];
-$('#top20 > thead > tr > th')
-    .each((_, th) => { headers.push( $(th).text().trim() ) });
+const headers = $('#top20 > thead > tr > th')
+    .map((_, th) => $(th).text().trim())
+    .filter((i, th) => [0,1,3,4,5].includes(i))
+    .get(); // <th style="width: 25%" colspan="2">Programming Language</th>
+console.log(headers);
 
 const rows = [];
 $('#top20 > tbody > tr').each((_, row) => {
@@ -22,8 +24,8 @@ $('#top20 > tbody > tr').each((_, row) => {
 });
 
 const csvLines = [
-        headers.join(','),
-        ...rows.map(row => row.join(','))
+        headers.join('\t'),
+        ...rows.map(row => row.join('\t'))
     ].join('\n');
 console.log(csvLines);
 // fs.writeFileSync('./files/index-tiobe.csv', csvLines, 'utf8');

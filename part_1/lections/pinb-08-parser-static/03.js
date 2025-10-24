@@ -17,6 +17,7 @@ const html = `
 const $ = cheerio.load(html);
 
 const tds = $('tr td'); // найти все td внутри всех tr
+// const tds = $('tr:first > td'); // найти все td внутри первого tr
 
 console.log(
     $(tds)

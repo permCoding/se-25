@@ -8,15 +8,13 @@ const html = request('GET', url).getBody('utf8');
 
 const $ = cheerio.load(html);
 
+// $('#top20').find('tbody').find('tr')
+// $('#top20 > tbody').find('tr')
 $('#top20 > tbody > tr')
     .each((_, row) => {
-        log(
-            $(row)
-                .find('td')
-                .map((_,e) => ($(e).text().trim()))
-                .get() // чтобы получить массив
-                .join(' ')
-        );
+        $(row)
+            .find('td') // все ячейки в строке
+            .each((_,e) => log($(e).text().trim()));
     });
 
 

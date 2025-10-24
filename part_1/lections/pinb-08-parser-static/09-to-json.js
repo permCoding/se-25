@@ -1,5 +1,5 @@
 const request = require('sync-request');
-const cheerio = require("cheerio"); // npm i cheerio
+const cheerio = require("cheerio");
 const fs = require('fs');
 
 
@@ -8,20 +8,17 @@ const html = request('GET', url).getBody('utf8');
 
 const $ = cheerio.load(html);
 
-const results = [];
-
-$('#top20 > tbody > tr')
-    .each((_, row) => {
+const results = $('#top20 > tbody > tr')
+    .map((_, row) => {
         const tds = $(row).find('td');
-        const obj = {
+        return {
             rankCur: $(tds[0]).text().trim(),
             rankOld: $(tds[1]).text().trim(),
             language: $(tds[4]).text().trim(),
             ratings: $(tds[5]).text().trim(),
             changeRating: $(tds[6])?.text().trim() || ''
         }
-        results.push( obj );
-    });
+    }).get();
 
 const json = JSON.stringify(results, null, 2);
 // log(json);
