@@ -23,9 +23,15 @@ $('#top20 > tbody > tr').each((_, row) => {
     rows.push(rowData);
 });
 
-const csvLines = [
-        headers.join('\t'),
-        ...rows.map(row => row.join('\t'))
-    ].join('\n');
+const csvLines = headers.join('\t') + '\n' + 
+    rows
+        .map(row => row.join('\t'))
+        .join('\n');
+
+// const csvLines = [
+//         headers.join('\t'),
+//         ...rows.map(row => row.join('\t'))
+//     ].join('\n');
+
 console.log(csvLines);
 // fs.writeFileSync('./files/index-tiobe.csv', csvLines, 'utf8');

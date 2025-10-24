@@ -16,9 +16,7 @@ const html = `
 
 const $ = cheerio.load(html);
 
-const row = $('tr[name="last"]'); // найти все tr внутри всех tbody
-
-const result = row
+const result = $('tr[name="last"]') // найти все tr внутри всех tbody
     .find('td')
     .map((_, e) => $(e).text().trim())
     .get()

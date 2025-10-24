@@ -12,7 +12,7 @@ const results = $('#top20 > tbody > tr')
     .map((_, row) => {
         const tds = $(row).find('td');
         return {
-            rankCur: $(tds[0]).text().trim(),
+            "rankCur": $(tds[0]).text().trim(),
             rankOld: $(tds[1]).text().trim(),
             language: $(tds[4]).text().trim(),
             ratings: $(tds[5]).text().trim(),
@@ -21,7 +21,7 @@ const results = $('#top20 > tbody > tr')
     }).get();
 
 const json = JSON.stringify(results, null, 2);
-// log(json);
+console.log(json);
 fs.writeFileSync('./files/index-tiobe.json', json, 'utf8');
 
 /*

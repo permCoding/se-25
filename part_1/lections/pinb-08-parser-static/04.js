@@ -28,10 +28,10 @@ const $ = cheerio.load(html);
 // найти таблицу по имени класса и все tr внутри tbody
 // const rows = $('table.new-t > tbody > tr');
 // const rows = $('table.new-t.special > tbody > tr');
-// const rows = $('table.special > tbody > tr');
+const rows = $('table.special > tbody > tr');
 
 // найти таблицу по id и все tr внутри tbody
-const rows = $('#first > tbody > tr');
+// const rows = $('#first > tbody > tr');
 
 rows.each((i, row) => {
     console.log(

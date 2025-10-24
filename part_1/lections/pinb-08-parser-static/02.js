@@ -19,13 +19,13 @@ const getFirst = (html) => {
     const $ = cheerio.load(html);
 
     // найти tr внутри tbody и выбрать первый
-    const row = $('tbody').find('tr:first');
+    // const row = $('tbody:first').find('tr:first');
     // const row = $('tbody').find('tr'); // все tr внутри tbody
-    // const row = $('tbody > tr:first');
+    const row = $('tbody:first > tr:first');
     // const row = $('tbody > tr').first();
 
     return row // это объект jQuery
-        .find('td')
+        .find('td') // найти все td внутри tr
         .map((_, e) => $(e).text().trim())
         .get() // в массив
         .join(' ');

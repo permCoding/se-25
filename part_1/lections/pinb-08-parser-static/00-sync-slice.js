@@ -39,12 +39,12 @@ const getByRegExp = (html) => {
 
 const url = 'https://pogoda.mail.ru/prognoz/perm/24hours/';
 let html = getHTML(url);
-require('fs').writeFileSync('./files/pogoda.html', html, 'utf8');
+// require('fs').writeFileSync('./files/pogoda.html', html, 'utf8');
 // console.log(html);
 
 // getByIndexOf(html);
 
-// getByRegExp(html);
+getByRegExp(html);
 
 
 /*
