@@ -11,7 +11,6 @@ let query = `q=${city}&appid=${API_KEY}&units=metric&lang=ru`;
 try {
     const response = request('GET', `${host}?${query}`);
     const jsonData = JSON.parse(response.getBody('utf8'));
-    // log(JSON.stringify(jsonData, null, 2));
 
     log(`Погода в ${jsonData.name}:`);
     log(`Температура: ${jsonData.main.temp}°C`);

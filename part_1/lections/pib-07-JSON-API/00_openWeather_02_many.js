@@ -24,4 +24,5 @@ const getWeatherForCity = (city) => {
 }
 
 const cities = ['Perm', 'Moscow', 'Saint-Petersburg', 'Petersburg'];
-cities.forEach(city => log(JSON.stringify(getWeatherForCity(city), null, 2)));
+cities
+    .forEach(city => log(JSON.stringify(getWeatherForCity(city), null, 2)));

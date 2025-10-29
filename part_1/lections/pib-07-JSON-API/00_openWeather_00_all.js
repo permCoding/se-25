@@ -10,7 +10,7 @@ let query = `q=Perm&appid=${API_KEY}&units=metric&lang=ru`;
 
 try {
     const response = request('GET', `${host}?${query}`);
-    const jsonData = JSON.parse(response.getBody('utf8'));
+    const jsonData = JSON.parse(response.getBody('utf8')); // массив объектов
     const strJSON = JSON.stringify(jsonData, null, 2)
     
     console.log(strJSON);

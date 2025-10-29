@@ -14,11 +14,7 @@ const getProducts = (url) => {
 
 const saveImg = (url, ind) => {
     let indBook = ind.toString().padStart(3, '0')
-    const savePath = path.join(__dirname, 'files', `book_${indBook}.jpg`);
-    const dir = path.dirname(savePath);
-    if (!fs.existsSync(dir)) { // если папки НЕТ
-        fs.mkdirSync(dir, { recursive: true });
-    }
+    const savePath = `./files/book_${indBook}.jpg`;
     let optionsImg = {
         headers: {
             'User-Agent': 'Mozilla/5.0' // без этого могут заблокировать
