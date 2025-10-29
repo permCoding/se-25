@@ -1,0 +1,28 @@
+{
+    "headers": {
+        "User-Agent": "Mozilla/5.0",
+        "ab-tests-flags": "[{\"v\":\"false\",\"t\":\"flag\",\"n\":\"acqn_l_reactivation\"},{\"v\":\"true\",\"t\":\"flag\",\"n\":\"all_new\"},{\"v\":\"false\",\"t\":\"flag\",\"n\":\"pdf_web_2321\"},{\"v\":\"0\",\"t\":\"flag\",\"n\":\"testId_2321\"},{\"v\":\"true\",\"t\":\"flag\",\"n\":\"webtoon_web_2321\"},{\"v\":\"true\",\"t\":\"flag\",\"n\":\"progressive_discount\"},{\"v\":\"true\",\"t\":\"flag\",\"n\":\"all_arts_series\"}]",
+        "accept": "application/json, text/plain, */*",
+        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+        "accept-version": "2",
+        "app-id": "115",
+        "baggage": "sentry-environment=prod,sentry-release=6.845.233,sentry-public_key=66365c10274f4724819f92df56571b8b,sentry-trace_id=3992c094a32145a59551c4bee55d7ea0,sentry-sample_rate=0.4,sentry-transaction=%2Fsearch%2F%5B%5B...slug%5D%5D,sentry-sampled=false",
+        "basket": "",
+        "client-host": "www.litres.ru",
+        "priority": "u=1, i",
+        "safemode-enabled": "0",
+        "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-site",
+        "sentry-trace": "3992c094a32145a59551c4bee55d7ea0-8739166f4dc93ad6-0",
+        "session-id": "6zbq8c29e18ja4f6be082j104320e4dd",
+        "ui-currency": "RUB",
+        "ui-language-code": "ru",
+        "wishlist": "",
+        "x-request-id": "4d1853b6a2598719e1643ef40e4ec60a",
+        "cookie": "__ddg1_=q1XatYEdnWTYFGXfPtG3; advcake_track_id=39f3fc7b-8765-9d2e-c5f0-ec4906049910; advcake_track_url=; tj4rxr_track_url=; tj4rxr_track_id=39f3fc7b-8765-9d2e-c5f0-ec4906049910; advcake_session_id=edb14ecb-e37a-ede6-d83e-2cccc051e64b; __Secure-session_context=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOiI2emJxOGMyOWUxOGphNGY2YmUwODJqMTA0MzIwZTRkZCIsInVzZXJfaWQiOjIwMjUwNDE3OSwiYXV0aF9tZXRob2QiOiJsb2dpbl9vcl9lbWFpbCIsImlzc3VlZF9hdCI6MTc2MDI3NTE2MH0.ZpYIOT6r6l2jXBq6Yah_2hoa-rZvDtiP7QGigesD1MY; __ddg9_=77.43.208.232; __ddg10_=1760330210; __ddg8_=CfGcGSKFMXo0n0UH"
+    }
+}
