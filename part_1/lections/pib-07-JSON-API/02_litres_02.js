@@ -16,7 +16,8 @@ let json = getProducts(url).payload.data;
 
 let hostWWW = 'https://www.litres.ru';
 let imgLinks = json.map(elm => hostWWW+elm.instance.cover_url);
-console.log(imgLinks[0]);
+console.log(imgLinks);
+
 /*
 
 https://api.litres.ru/foundation/api/search?is_for_pda=false&limit=24&offset=0&q=%D0%B3%D0%B5%D0%B3%D0%B5%D0%BB%D1%8C&show_unavailable=false&types=text_book

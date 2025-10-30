@@ -1,17 +1,16 @@
 /*
   Заголовок User-Agent:
-    - GitHub обязательно требует его указание. 
-    - без него будет ошибка 403.
+    - GitHub обязательно требует его указание
+    - без него будет ошибка 403
 
   Ограничения без токена:
-    - 60 запросов/час без аутентификации.
-    - с токеном — 5000 запросов/час.
+    - 60 запросов/час без аутентификации
+    - с токеном — 5000 запросов/час
   Проверьте URL:
     - если пользователь НЕ существует - ошибка 404
 */
 
-const syncRequest = require('sync-request');
-const fs = require('fs');
+const request = require('sync-request');
 require('dotenv').config();
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // брать тут https://github.com/settings/tokens
 
@@ -24,8 +23,8 @@ const headersForGitHub = {
 
 const getFollowers = (url) => {
     try {
-        const response = syncRequest('GET', url, headersForGitHub);
-        if (response.statusCode !== 200) throw new Error(`${response.statusCode}`);
+        const response = request('GET', url, headersForGitHub);
+        // if (response.statusCode !== 200) throw new Error(`${response.statusCode}`);
         return JSON.parse(response.getBody('utf8'));
     } catch (error) {
         console.error(error.message);

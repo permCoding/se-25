@@ -17,11 +17,14 @@ const getFollowers = (url) => {
     }
 };
 
-setTimeout(() => {
+
+const myFunction = () => {
     const url = 'https://api.github.com/users/permCoding/followers';
     const followers = getFollowers(url);
     console.log(`Получено объектов: ${followers.length}`);
     followers
         .sort((a,b) => a.login>b.login? +1: -1)
         .forEach((follower) => console.log(follower.login));
-}, 60000);
+}
+
+setTimeout(myFunction, 60000); // 60 секунд

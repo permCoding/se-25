@@ -22,9 +22,9 @@ const getWeatherForCity = async (city) => {
 
 const getWeatherForCityWithDelay = async (cities, delay = 1000) => {
     for (const city of cities) {
-        const result = await getWeatherForCity(city);
+        const result = await getWeatherForCity(city); // sleep(1000) - delay для Питона
         log(JSON.stringify(result, null, 2));
-        await new Promise(resolve => setTimeout(resolve, delay));
+        await new Promise(resolve => setTimeout(resolve, delay)); // тут задержка
     }
 };
 

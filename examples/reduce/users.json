@@ -1,0 +1,118 @@
+[
+    {
+        "lastName": "Иванов",
+        "rating": 72
+    },
+    {
+        "lastName": "Петров",
+        "rating": 45
+    },
+    {
+        "lastName": "Смирнов",
+        "rating": 88
+    },
+    {
+        "lastName": "Кузнецов",
+        "rating": 31
+    },
+    {
+        "lastName": "Васильев",
+        "rating": 92
+    },
+    {
+        "lastName": "Попов",
+        "rating": 56
+    },
+    {
+        "lastName": "Новиков",
+        "rating": 17
+    },
+    {
+        "lastName": "Романов",
+        "rating": 83
+    },
+    {
+        "lastName": "Федоров",
+        "rating": 64
+    },
+    {
+        "lastName": "Михайлов",
+        "rating": 29
+    },
+    {
+        "lastName": "Алексеев",
+        "rating": 76
+    },
+    {
+        "lastName": "Егоров",
+        "rating": 41
+    },
+    {
+        "lastName": "Григорьев",
+        "rating": 95
+    },
+    {
+        "lastName": "Тарасов",
+        "rating": 33
+    },
+    {
+        "lastName": "Николаев",
+        "rating": 87
+    },
+    {
+        "lastName": "Дмитриев",
+        "rating": 58
+    },
+    {
+        "lastName": "Степанов",
+        "rating": 22
+    },
+    {
+        "lastName": "Андреев",
+        "rating": 71
+    },
+    {
+        "lastName": "Викторов",
+        "rating": 66
+    },
+    {
+        "lastName": "Сергеев",
+        "rating": 49
+    },
+    {
+        "lastName": "Олегов",
+        "rating": 84
+    },
+    {
+        "lastName": "Максимов",
+        "rating": 37
+    },
+    {
+        "lastName": "Артёмов",
+        "rating": 91
+    },
+    {
+        "lastName": "Ярославов",
+        "rating": 53
+    },
+    {
+        "lastName": "Даниилов",
+        "rating": 79
+    },
+    {
+        "lastName": "Кириллов",
+        "rating": 62
+    },
+    {
+        "lastName": "Леонидов",
+        "rating": 44
+    },
+    {
+        "lastName": "Ильин",
+        "rating": 81
+    },
+    {
+        "lastName": "Гаврилов",
+        "rating": 35
+    }
+]
