@@ -3,9 +3,7 @@ const fs = require('fs');
 const request = require('sync-request'); // npm i sync-request
 const options = require('./options.json');
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const getProducts = (url) => {
     let data = request("GET", url, options).getBody("utf8");
@@ -28,6 +26,7 @@ const saveImg = (url, ind) => {
     };
     let data = request("GET", url, optionsImg).getBody(); // без "utf8" - бинарные данные
     fs.writeFileSync(savePath, data);
+    console.log(`saved image for ${indBook} book`);
 }
 
 /* метод forEach не работает с асинхронными функциями
@@ -39,7 +38,7 @@ const downloadImages = async (links, delay = 1200) => {
 }*/
 
 // заменяем на цикл for 
-const downloadImages = async (links, delay = 1200) => {
+const downloadImages = async (links, delay = 2000) => {
     for (let i = 0; i < links.length; i++) {
         saveImg(links[i], i);
         await sleep(delay); // можно убрать последнюю пазузу
