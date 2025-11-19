@@ -69,6 +69,7 @@ JS - язык:
 [Node.js](https://nodejs.org/) | [VS Code](https://code.visualstudio.com/download)  
 [Редактор БД SQLite sqlitebrowser](https://sqlitebrowser.org/dl/)  
 [Редактор БД dbeaver](https://dbeaver.io/download/)  
+[Расширение GigaCode](https://gitverse.ru/features/gigacode/install/)  
 
 ## links && utils  
 
