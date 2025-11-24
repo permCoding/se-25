@@ -41,3 +41,7 @@
 - **сдать** - до начала сессии  
 
 ---  
+
+- в этой [папке](https://github.com/permCoding/se-25/tree/main/courseProject) можно найти `ПРИМЕР-оформления.docx` и `Титул и ТЗ.docx`  
+
+---  
