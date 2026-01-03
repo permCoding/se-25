@@ -1,6 +1,29 @@
 const log = console.log;
 
+const ex_00 = () => {
+    let str = [
+        'Кукуруза',
+        'Кипарис',
+        'Компас',
+        'кактус',
+        'крапива'
+    ];
+
+    let regex1 = /^[Кк].*[а]$/; // /i
+    log(str.filter(elm => regex1.test(elm)));
+
+    let regex2 = new RegExp('^[к].*[с]$', 'i');
+    log(str.filter(elm => regex2.test(elm)));
+}
+
+
 const ex_01 = () => {
+    log(
+        '89093344555'.replace(/([1-9])(\d{3})(.{0,})/, '$1-($2)-$3')
+    );
+}
+
+const ex_02 = () => {
     let str = `
         В классе было 5 мальчиков и 7 девочек.
         В наличии были - 12 яблок, 10 бананов, 9 апельсинов.
@@ -52,7 +75,7 @@ const ex_01 = () => {
     log(matches);
 }
 
-const ex_04 = () => {
+const ex_03 = () => {
     let now = new Date();
     let arr = [now.getFullYear(), now.getMonth()+1, now.getDate()];
     let inputDate = arr
