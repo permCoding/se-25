@@ -18,12 +18,12 @@ const ex_02 = () => {
     for (let i = 0; i < str.length; i++) {
         if (!set.has(str[i])) {
             set.add(str[i]);
-            log(str[i], i);
+            log(str[i], i); // первые позиции
         }
     }
 }
 
-const ex_03 = () => {
+const ex_03 = () => { // последние позиции
     const str = "мама мыла раму мылом и руками";
     const dict = {};
     for (let i = 0; i < str.length; i++) {
@@ -32,7 +32,7 @@ const ex_03 = () => {
     log(JSON.stringify(dict, null, 2));
 }
 
-const ex_04 = () => {
+const ex_04 = () => { // первые позиции
     const str = "мама мыла раму мылом и руками";
     const map = new Map();
     for (let i = 0; i < str.length; i++) {
@@ -40,13 +40,13 @@ const ex_04 = () => {
             map.set(str[i], i);
         }
     }
-    log(map);
+    log(map); // Map()
     let obj = Object.fromEntries(map.entries());
-    log(JSON.stringify(obj, null, 2));
+    log(JSON.stringify(obj, null, 2)); // object
 }
 
 const ex_05 = () => {
-    const str = "мама мыла раму мылом и руками";
+    const str = "руками и мылом мама мыла раму";
     const map = new Map();
     for (let i = 0; i < str.length; i++) {
         if (map.has(str[i])) {
@@ -55,6 +55,11 @@ const ex_05 = () => {
             map.set(str[i], 1);
         }
     }
+
+    for (let [key, value] of map) {
+        log({key, value});
+    }
+
     [...map.entries()]
         .sort(([,a], [,b]) => b-a)
         .forEach(elm => log(...elm));
