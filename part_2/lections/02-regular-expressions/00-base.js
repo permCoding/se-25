@@ -6,45 +6,67 @@ const ex_00 = () => {
         'Кипарис',
         'Компас',
         'кактус',
-        'крапива'
+        'крапива',
+        'КА'
     ];
 
-    let regex1 = /^[Кк].*[а]$/; // /i
+    // let regex1 = /^[Кк].*[а]$/;
+    // let regex1 = /^[к].*[а]$/i; // флаг i - игнор регистра
+    let regex1 = /^к[А-Я]{1,}а$/i;
     log(1, str.filter(elm => regex1.test(elm)));
 
-    let regex2 = new RegExp('^[к].*[с]$', 'i');
+    let regex2 = new RegExp('^к.*с$', 'i');
     log(2, str.filter(elm => regex2.test(elm)));
 }
 
 const ex_01 = () => {
-    let words = 'Кук кукуруза кокошник какао кактус Капитан караван';
+    let words = 'Кук кукуруза   кокошник какао кактус Капитан караван';
 
     let regex1 = /к[аоу][крп]/gi;
-    for (let m of words.match(regex1)) { log(m); }
+    for (let m of words.match(regex1)) { log(1, m); }
 
-    let regex2 = /\s[^\s]+\s/gi;
-    for (let m of words.match(regex2)) { log(m); }
-    // " кукуруза ""
-    // " какао "
-    // " Капитан "
-    // забираются с пробелами
+    let regex2 = /\s[^\s]+\s/gi; // пробел + не пробелЫ + пробел
+    for (let m of words.match(regex2)) { log(2, m); }
+    // "_кукуруза_"   "_какао_"   "_Капитан_"
+    // слова забираются с пробелами и НЕ все
 
-    let regex3 = /(?<=\s|^)[^\s]+(?=\s|$)/gi;
-    for (let m of words.matchAll(regex3)) { log(m[0]); }
-    // let matches = [...words.matchAll(regex2)].map(m => m[0]);
-    // console.log(matches); // все слова
+    // можно добавить группу для выбора без пробелов
+    let regex3 = /\s([^\s]+)\s/gi;
+    for (let m of words.matchAll(regex3)) { log(3, m[1]); }
+    // "_кукуруза_"   "_какао_"   "_Капитан_"
+    // теперь слова забираются БЕЗ пробелами, но опять НЕ все
 
-    log(words.split(/\s+/)); // все слова
+    // можно пробелы не включать в перебор
+    let regex4 = /(?<=\s|^)([^\s]+)(?=\s|$)/gi;
+    for (let m of words.matchAll(regex4)) { log(4, m[1]); }
+    // у исключённых групп нет номера
 
-    let regex4 = /\b\w+\b/gi; // границы слов
-    for (let m of words.matchAll(regex4)) { 
-        console.log(m[0]); 
-    }
-    // log([...words.match(regex4)]);
+    // далее: и русские символы и латиница
+    // с кириллицей вообще работает НЕнадёжно
+    words = 'word Кук кок   какао char';
+    
+    let regex5 = /\b\w+\b/g; // границы слов \w - берёт только латиницу
+    log(5, [...words.matchAll(regex5)].map(m => m[0])); // так сразу в массив
+    // for (let m of words.matchAll(regex5)) { log(5, m[0]); }
 
-    // let words = 'Кук кукуруза кокошник какао кактус Капитан караван';
-    // let regex4 = /\w+/gi;
-    // for (let m of words.match(regex4)) { log(m); }
+    let regex6 = /[А-Яа-яЁё]+/g; // без игнора
+    log(6, [...words.matchAll(regex6)].map(m => m[0]));
+
+    let regex7 = /[\S]+/g; // без игнора
+    log(7, [...words.matchAll(regex7)].map(m => m[0]));
+
+    // можно просто сплитом - только в этой задаче
+    log(8, words.split(/\s+/)); // все слова даже если пробелы неодиночные
+
+    // вариант с String.raw``
+    let ptn = String.raw`\s+`;
+    let reg = new RegExp(ptn, 'g');
+    log(9, words.split(reg)); // все слова даже если пробелы неодиночные
+    
+    // вариант БЕЗ String.raw``
+    ptn = '\\s+'; // \\s - экран экрана
+    reg = new RegExp(ptn, 'g');
+    log(10, words.split(reg)); // все слова даже если пробелы неодиночные
 }
 
 const ex_02 = () => {
@@ -162,9 +184,10 @@ const ex_06 = () => {
     // ['9','abc','606','123','456','555','FFF','BBB','1024']
 }
 
-ex_01();
-ex_02();
-ex_03();
-ex_04();
-ex_05();
-ex_06();
+// ex_00();
+ex_01(); //
+// ex_02();
+// ex_03();
+// ex_04();
+// ex_05();
+// ex_06();
