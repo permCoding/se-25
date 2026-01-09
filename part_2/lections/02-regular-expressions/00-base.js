@@ -100,7 +100,7 @@ const ex_task_01 = () => {
     log(7, [...str.matchAll(reg7)].map(m => +m[1]));
 }
 
-const ex_02 = () => { // replace и нумерация групп выборки
+const ex_02 = () => { // replace, нумерованные и именованные группы
     log(
         '89093344555'.replace(/([1-9])(\d{3})(.{0,})/, '$1-($2)-$3')
     );
@@ -113,11 +113,14 @@ const ex_02 = () => { // replace и нумерация групп выборки
         .map(el => String(el).padStart(2, '0'))
         .join('-');
     // let inputDate = "2026-02-19";
-    console.log(inputDate);
+    log(0, inputDate);
 
     let regex = /^(\d{4})-(\d{2})-(\d{2})$/;
     let formatDate = inputDate.replace(regex, "$3.$2.$1");
-    log(formatDate); // 19.02.2026
+    log(1, formatDate); // 19.02.2026
+
+    let re = /^(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})$/;
+    log(2, inputDate.replace(re, "$<day>.$<month>.$<year>")); // 19.02.2026
 }
 
 const ex_03 = () => { // жадность (по умолчанию) регулярок и применение АНТИжадности
@@ -247,8 +250,8 @@ const ex_06 = () => {
 // ex_00();
 // ex_01();
 // ex_task_01();
-// ex_02();
-ex_03();
+ex_02();
+// ex_03();
 // ex_04();
 // ex_05();
 // ex_06();
