@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const ex_01 = () => {
+const ex_01 = () => { // по группе или по номеру группы
     const code = fs.readFileSync('./index_01.html', 'utf8');
 
     let highlighted = code
@@ -15,8 +15,7 @@ const ex_01 = () => {
         .writeFileSync('./index_01_.html', highlighted, 'utf8');
 }
 
-const ex_02 = () => {
-    // CSS для стилей
+const ex_02 = () => { // со стилями CSS
     const styles = `
         .keyword { color: #d73a49; font-weight: bold; }
         .string { color: #032f62; }
@@ -28,7 +27,7 @@ const ex_02 = () => {
 
     const code = fs.readFileSync('./index_02.html', 'utf8');
     
-    codeReplaced = code
+    codeReplaced = code // цепочка функций замены
         .replace(
             /\b(let|const|var|function|return)\b/g, 
             '<span class="keyword">$&</span>')
@@ -45,11 +44,8 @@ const ex_02 = () => {
             '<span class="function">$&</span>'
         );
 
-    // Вставляем стили внутрь <head>
-    const codeWithStyles = codeReplaced.replace(
-        /(<head[^>]*>)/i, 
-        `$1<style>${styles}</style>`
-    );
+    const codeWithStyles = codeReplaced // добавляем в <head> стили
+        .replace(/(<head[^>]*>)/i, `$1<style>${styles}</style>`);
     
     require('fs')
         .writeFileSync('./index_02_.html', codeWithStyles, 'utf8');
@@ -62,7 +58,7 @@ ex_01();
 /*
     /(<head[^>]*>)/i
 - ищет открывающий тег <head> 
-- даже с атрибутами, например <head lang="ru">
+- возможно с атрибутами, например <head lang="ru">
 - [^>]* — означает любые символы, кроме ">"
 - флаг i — нечувствителен к регистру (<HEAD>, <head>, <Head>)
 - $1 — подставляет найденный тег <head ... >
