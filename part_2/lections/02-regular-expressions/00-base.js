@@ -100,13 +100,57 @@ const ex_task_01 = () => {
     log(7, [...str.matchAll(reg7)].map(m => +m[1]));
 }
 
-const ex_02 = () => {
+const ex_02 = () => { // replace и нумерация групп выборки
     log(
         '89093344555'.replace(/([1-9])(\d{3})(.{0,})/, '$1-($2)-$3')
     );
+
+    // применение групп для перестановки - форматирование даты
+    // "2026-02-19" => "19.02.2026"
+    let now = new Date();
+    let arr = [now.getFullYear(), now.getMonth()+1, now.getDate()];
+    let inputDate = arr
+        .map(el => String(el).padStart(2, '0'))
+        .join('-');
+    // let inputDate = "2026-02-19";
+    console.log(inputDate);
+
+    let regex = /^(\d{4})-(\d{2})-(\d{2})$/;
+    let formatDate = inputDate.replace(regex, "$3.$2.$1");
+    log(formatDate); // 19.02.2026
 }
 
-const ex_03 = () => {
+const ex_03 = () => { // жадность (по умолчанию) регулярок и применение АНТИжадности
+    let str = "<div>первый</div> <div>второй</div>";
+
+    // ЖАДНЫЙ квантификатор берёт ВСЁ до последнего </div>
+    let greedy = /<div>.*<\/div>/;
+    log(str.match(greedy)[0]); // <div>первый</div> <div>второй</div>
+    
+    let lazy = /<div>.*?<\/div>/; // НЕЖАДНЫЙ (ленивый) квантификатор
+    log(str.match(lazy)[0]); // <div>первый</div> - только первый див
+
+    // найти содержимое всех тегов span определённого класса
+    let html = `
+        <body>
+            <pre>
+                <code>
+                    <span class="keyword">let</span> backGroundColor = '#fff';
+                    <span class="keyword">const</span> fontSize = 14;
+                    <span class="keyword">var</span> borderWidth = 1;
+                    <span class="function">function</span> getColor() { return '#000'; }
+                    console.log(backGroundColor);
+                </code>
+            </pre>
+        </body>`;
+
+    const regex = /<span class="keyword">([^<]*)<\/span>/g; // экранируем слеш
+    log([...html.matchAll(regex)].map(m => m.index));
+    log([...html.matchAll(regex)].map(m => m[0]));
+    log([...html.matchAll(regex)].map(m => m[1]));
+}
+
+const ex_04 = () => {
     let str = `
         В классе было 5 мальчиков и 7 девочек.
         В наличии были - 12 яблок, 10 бананов, 9 апельсинов.
@@ -158,21 +202,6 @@ const ex_03 = () => {
     log(matches);
 }
 
-const ex_04 = () => {
-    let now = new Date();
-    let arr = [now.getFullYear(), now.getMonth()+1, now.getDate()];
-    let inputDate = arr
-        .map(el => String(el).padStart(2, '0'))
-        .join('-');
-    // let inputDate = "2026-02-19";
-    console.log(inputDate);
-
-    let regex = /^(\d{4})-(\d{2})-(\d{2})$/;
-    let formatDate = inputDate.replace(regex, "$3.$2.$1");
-    log(formatDate); // 19.02.2026
-}
-
-
 const ex_05 = () => {
     let str = "000 abc123DEF 999";
 
@@ -217,9 +246,9 @@ const ex_06 = () => {
 
 // ex_00();
 // ex_01();
-ex_task_01();
+// ex_task_01();
 // ex_02();
-// ex_03();
+ex_03();
 // ex_04();
 // ex_05();
 // ex_06();
