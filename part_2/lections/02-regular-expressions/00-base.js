@@ -69,6 +69,37 @@ const ex_01 = () => {
     log(10, words.split(reg)); // все слова даже если пробелы неодиночные
 }
 
+const ex_task_01 = () => {
+    // найти все подстроки - которые есть целые числа двузначные
+    let str = '#FFF 10 01 000 234 22A33 23.45 123405';
+    
+    let reg1 = /\d{2}/g; // НЕ все находит - пропускает пересечения
+    log(1, [...str.matchAll(reg1)].map(m => m[0]));
+
+    let reg2 = /\d(?=\d)/g; // так находит все начала нужных строк
+    log(2, [...str.matchAll(reg2)].map(m => m[0]));
+
+    let reg3 = /\d(?=\d)/g; // можно вывести эти индексы
+    log(3, [...str.matchAll(reg3)].map(m => m.index));
+
+    let reg4 = /\d(?=\d)/g; // так все и даже 01
+    log(4, [...str.matchAll(reg4)].map(m => str.substring(m.index, m.index+2)));
+
+    let reg5 = /\d(?=\d)/g; // можно стартовый 0 отфильтровать потом
+    log(5, [...str.matchAll(reg5)]
+        .map(m => str.substring(m.index, m.index+2))
+        .filter(x => !x.startsWith('0'))
+    );
+
+    let reg6 = /[1-9](?=\d)/g; // или сразу указать без первого 0
+    log(6, [...str.matchAll(reg6)].map(m => str.substring(m.index, m.index+2)));
+    // log(6, [...str.matchAll(reg6)].map(m => str.substr(m.index, 2))); // устаревший метод
+
+    let reg7 = /(?=([1-9]\d))/g; // так все НОРМ
+    log(7, [...str.matchAll(reg7)].map(m => str.substring(m.index, m.index+2)));
+    log(7, [...str.matchAll(reg7)].map(m => +m[1]));
+}
+
 const ex_02 = () => {
     log(
         '89093344555'.replace(/([1-9])(\d{3})(.{0,})/, '$1-($2)-$3')
@@ -185,7 +216,8 @@ const ex_06 = () => {
 }
 
 // ex_00();
-ex_01(); //
+// ex_01();
+ex_task_01();
 // ex_02();
 // ex_03();
 // ex_04();
