@@ -1,11 +1,12 @@
 // создание объекта с помощью класса Object
+const log = console.log;
 
 let ex01 = () => {
     let obj1 = new Object( { a: 1, b: 2 } );
-    console.log(obj1);
+    log(obj1);
     
     let obj2 = { a: 1, b: 2 }; // неявно вызывается new Object()
-    console.log(obj2);    
+    log(obj2);    
 }
 
 let ex02 = () => {
@@ -16,24 +17,24 @@ let ex02 = () => {
     let obj = Object.fromEntries(arr); // объект из коллекции
     
     obj.cccp = 1989;
-    console.log(obj);
+    log(obj);
 
     let list = Object.entries(obj); // коллекция из объекта
-    console.log(list);
+    log(list);
 }
 
 let ex03 = () => {
     let map = new Map();
     map.set("aaa", 111);
     map.set("bbb", 222);
-    console.log(map);
+    log(map);
     let obj = Object.fromEntries(map); // объект из коллекции
     
     obj.cccp = 1972;
-    console.log(obj);
+    log(obj);
 
     let list = Object.entries(obj); // коллекция из объекта
-    console.log(list);
+    log(list);
 }
 
 console.clear();

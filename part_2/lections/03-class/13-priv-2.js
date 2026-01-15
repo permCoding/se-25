@@ -1,5 +1,7 @@
 // приватное
 
+const log = console.log;
+
 class Student {
     #name = ''; // приватное поле
     constructor(line) {
@@ -16,10 +18,10 @@ class Student {
 console.clear();
 
 let stud = new Student('Петрович');
-console.log(stud); // приватные поля не видны
-console.log(stud.get_name());
+log(stud); // приватные поля не видны
+log(stud.get_name());
 
 // stud.#name = ' Петро '; // так не работает - private
 stud.set_name(' Петро ');
-console.log(stud);
-console.log(stud.get_name());
+log(stud);
+log(stud.get_name());

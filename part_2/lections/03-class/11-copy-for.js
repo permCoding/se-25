@@ -1,6 +1,8 @@
 // можно самостоятельно повторить копирование по отдельности
 // копируются и поля и методы
 
+const log = console.log;
+
 function copy_object(obj) { // копируем содержимое объекта
 	let obj_new = {};
 	for (let key in obj) { // все параметры по отдельности в цикле скопируем
@@ -21,9 +23,9 @@ let target = copy_object(source); // копируем поля объекта в
  
 source.age += 1;
 
-console.log(`source => ${source.toString()}`);
-console.log(`target => ${target.toString()}`);
+log(`source => ${source.toString()}`);
+log(`target => ${target.toString()}`);
 
 for (let item in target) { // проверим перебором
-    console.log(`item: ${target[item]}`);
+    log(`item: ${target[item]}`);
 } // копируются и поля и методы

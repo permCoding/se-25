@@ -1,3 +1,5 @@
+const log = console.log;
+
 /** создание объекта с помощью функции */
 let ex01 = () => {
     function GetObject(x, y) { // функция - конструктор объекта
@@ -15,13 +17,13 @@ let ex01 = () => {
     const obj2 = new GetObject(12, 10);
     obj2.y += 100; // проверка - объекты разные
     
-    console.log(obj1);
-    console.log(obj2);
+    log(obj1);
+    log(obj2);
     
-    console.log(Object.keys(obj2));
-    console.log(Object.values(obj2));
+    log(Object.keys(obj2));
+    log(Object.values(obj2));
     
-    console.log(obj1.get_divmod());    
+    log(obj1.get_divmod());    
 }
 
 /** создать статический метод - общий для всех объектов - 
@@ -43,7 +45,7 @@ let ex02 = () => {
     ];
     
     arr.forEach((element, index) => {
-       console.log(index, element.get_divmod());
+       log(index, element.get_divmod());
     });
 }
 
@@ -56,8 +58,8 @@ let ex03 = () => {
         return -1;
     }
     let arr = [1,2,33,7,5,6,8];
-    console.log(arr.indexElement(22));
-    console.log(arr.indexElement(33));
+    log(arr.indexElement(22));
+    log(arr.indexElement(33));
 }
 
 console.clear();

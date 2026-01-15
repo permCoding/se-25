@@ -1,6 +1,8 @@
 // наследование как расширение одного класса другим
 // https://learn.javascript.ru/class-inheritance
 
+const log = console.log;
+
 class Human {
     constructor(name) {
         this._name = name;
@@ -24,9 +26,9 @@ class Student extends Human { // расширение класса
 
 
 let student = new Student('Косолапов Петя');
-console.log(student);
+log(student);
 
 student.group = 'ПИб-31';
-console.log(student);
-console.log(student.name); // свойство
-console.log(student.group); // свойство
+log(student);
+log(student.name); // свойство
+log(student.group); // свойство

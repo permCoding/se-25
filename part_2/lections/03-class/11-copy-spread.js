@@ -1,6 +1,8 @@
 // можно копировать с помощью оператора расширения
 // копируются и поля и методы
 
+const log = console.log;
+
 let source = {
     name: 'Alex',
     age: 22,
@@ -16,13 +18,13 @@ let target = {
  
 source.age += 1;
 
-console.log(`source => ${source.toString()}`);
-console.log(`target => ${target.toString()}`);
+log(`source => ${source.toString()}`);
+log(`target => ${target.toString()}`);
 
 for (let item in target) { // проверим перебором
-    console.log(`${item}: ${target[item]}`);
+    log(`${item}: ${target[item]}`);
 } // копируются и поля и методы
 
 for (let [key, value] of Object.entries(target)) { // проверим перебором
-    console.log(`${key}: ${value}`);
+    log(`${key}: ${value}`);
 } // копируются и поля и методы
