@@ -9,7 +9,7 @@ car.color = "Gray";
 car._year = 2012; // поле для которого назначим сеттер и геттер
 
 Object.defineProperty(car, "Year", {
-    set: function(value) {
+    set: function(value) { // валидация значений
         this._year = ((value>=1900) && (value<=2026))? value: 0;
     },
     get: function() {
