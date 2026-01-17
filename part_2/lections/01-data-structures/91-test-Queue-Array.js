@@ -1,33 +1,38 @@
 class Queue {
     constructor() {
-        this.elements = {}; // хранилище
-        this.head = 0;      // начало
-        this.tail = 0;      // конец
+        this.items = [];
     }
-
-    enqueue(element) {
-        this.elements[this.tail] = element;
-        this.tail++;
+    
+    enqueue(item) {
+        this.items.push(item);     // O(1) добавление в конец
     }
-
+    
     dequeue() {
-        if (this.isEmpty()) return null;
-        const item = this.elements[this.head];
-        delete this.elements[this.head];
-        this.head++;
-        return item;
+        return this.items.shift(); // O(n) удаление из начала
     }
-
+    
     peek() {
-        if (this.isEmpty()) return null;
-        return this.elements[this.head];
+        return this.items[0];
     }
-
+    
     get length() {
-        return this.tail - this.head;
+        return this.items.length;
     }
 
     isEmpty() {
         return this.length === 0;
     }
 }
+  
+const queue = new Queue();
+queue.enqueue('A'); // elements: {0: 'A'}, head:0, tail:1
+queue.enqueue('B'); // elements: {0:'A', 1:'B'}, head:0, tail:2
+queue.enqueue('C'); // elements: {0:'A', 1:'B', 2:'C'}, head:0, tail:3
+
+console.log(queue.peek());    // 'A' (начало)
+console.log(queue.dequeue()); // 'A', head=1
+console.log(queue.length);    // 2
+
+console.log(queue.dequeue()); // 'B'
+console.log(queue.dequeue()); // 'C'
+console.log(queue.isEmpty()); // true
