@@ -14,7 +14,14 @@ app.get('/', (req, res) => {
         "title": 'Абитуриенты',
         "arrayUsers": users.sort((a, b) => a.rating > b.rating? +1: -1) 
     };
-    res.render('users-03', model);
+    res.render('users-03', model); // рендеринг страницы - заполнение view данными
 });
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
+
+/* MVC
+M - модель - это модель данных
+    это представление данных предметной области в виде программного объекта
+V - view - представление
+    это шаблон представления в виде html-страницы
+*/

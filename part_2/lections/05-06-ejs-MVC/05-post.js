@@ -26,7 +26,7 @@ app.get(['/getUsers','/'], (req, res) => {
     try {
         const csvData = fs.readFileSync(filename, 'utf8');
         const jsonArray = csv.parse(csvData, opts);
-        res.json(jsonArray);
+        res.json(jsonArray); // возвращает json - НЕ html-страницу
     } catch (error) {
         console.error('Error:', error);
         res.status(500).send('Internal Server Error');
@@ -39,7 +39,7 @@ app.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}/`));
 - тут проверка только через Thunder Client
 - без web-форм и get и post
 
-- объект для тестирования:
+- объект для тестирования добавить в body:
     {
         "firstName": "Ирина",
         "lastName": "Кумова",
