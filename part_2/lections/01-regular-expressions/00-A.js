@@ -1,6 +1,23 @@
 const log = console.log;
 
 const ex_00 = () => {
+    let re1 = /ab?/;
+    let re2 = /ab{0,1}/;
+    let re3 = /ab{3}/;
+    let re4 = /ab+/;
+    let re5 = /ab*/;
+    let re6 = /a[^cdef]+/;
+
+    [
+        '',   'a',   'aa', 'aaa', 
+        'ab', 'abb', 'abbb', 
+        'bb', 'bbb', 'acc', 'aabb'
+    ].forEach( 
+        (elm, ind) => log( ind, '\t', re5.test(elm), '\t', elm ) 
+    );
+}
+
+const ex_01 = () => {
     let str = "qwerty 12   34 56 qwerty";
 
     let reg1 = /./;
@@ -29,3 +46,4 @@ const ex_00 = () => {
 };
 
 ex_00();
+// ex_01();
