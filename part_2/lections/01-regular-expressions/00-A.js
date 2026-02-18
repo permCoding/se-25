@@ -1,23 +1,70 @@
 const log = console.log;
 
-const ex_00 = () => {
+const ex_00 = () => { // в строке должно быть
+    let re = /1861/;
+    let str = 'Отмена крепостного права произошла в 1861 году';
+    log( re.test(str) );
+    
+    re = /186[0-9]/;
+    str = '... перебрался в столицу в 1865 году';
+    log( re.test(str) );
+
+    re = /20[012][0-9]/;
+    str = '... родилась 2001 году';
+    log( re.test(str) );
+
+    re = /20[012]\d/;
+    str = '... родилась 2029 году';
+    log( re.test(str) );
+
+    re = /20([01]\d|2[0-6])/;
+    str = '... родилась 2026 году';
+    log( re.test(str) );
+}
+
+const ex_01 = () => { // квантификаторы
     let re1 = /ab?/;
     let re2 = /ab{0,1}/;
     let re3 = /ab{3}/;
     let re4 = /ab+/;
-    let re5 = /ab*/;
-    let re6 = /a[^cdef]+/;
+    let re5 = /ab*c/;
+    let re6 = /a[^c-f]+/;
 
     [
         '',   'a',   'aa', 'aaa', 
-        'ab', 'abb', 'abbb', 
-        'bb', 'bbb', 'acc', 'aabb'
+        'ab', 'abb', 'abbb', '_abbbb', 
+        'bb', 'bbb', 'acc', 'aabb', '_abc_', '_ac_',
+        '## aavv ##', '## aaaa ##'
     ].forEach( 
         (elm, ind) => log( ind, '\t', re5.test(elm), '\t', elm ) 
     );
 }
 
-const ex_01 = () => {
+const ex_02 = () => { // экранирование
+    let re1 = /\<1024\>/;
+    let re2 = /\"1024\"/;
+    let re3 = /&lt;\s*1024\s*&rt;/;
+    
+    log(
+        [
+            '<1024>', '1024',
+            '"1024"', '&lt; 1024    &rt;'
+        ].map(elm => [re3.test(elm), elm])
+    );
+
+    let str = '1023 <1024> 1025';
+    let reg = /\<\s*(\d+)\s*\>/;
+    log(str.match(reg)[1]);
+
+    str = '1023 <23.15> 1025';
+    reg = /\<\s*((\d+)\.(\d+))\s*\>/;
+    let m = str.match(reg);
+    if (m) {
+        log(m[2], m[3]);
+    }
+}
+
+const ex_03 = () => { // match vs matchAll
     let str = "qwerty 12   34 56 qwerty";
 
     let reg1 = /./;
@@ -43,7 +90,32 @@ const ex_01 = () => {
     // let reg5 = /[0-9]+/g;
     let reg5 = /\d+/g;  // найти все совпадения
     log(5, ...str.match(reg5));
+
+    str = '1023 <23.15> 1025 <606.909>';
+    let reg = /\<\s*((\d+)\.(\d+))\s*\>/g;
+    log(6, str.match(reg));
+    log(6, [...str.matchAll(reg)]);
+    log(6, [...str.matchAll(reg)].map(e => +e[2]));
+    /*
+        поле groups — только для именованных
+        (?<число>\d+) для { groups: { число: '23' } }
+    */
+
+    /*
+        Node.js показывает [Object: null prototype], чтобы 
+        отличить его от обычных объектов {} с прототипом Object.prototype.
+    */
+    reg = /\<\s*((?<int>\d+)\.(?<flo>\d+))\s*\>/g;
+    log(7);
+    for (let m of str.matchAll(reg)) {
+        // console.table(m.groups); // console.dir(m.groups);
+        log(JSON.stringify(m.groups, null, 2));
+        // log(m.groups.int, m.groups.flo);
+    };
+    log([...str.matchAll(reg)].map(e => [+e.groups.int, +e.groups.flo]));
 };
 
-ex_00();
+// ex_00();
 // ex_01();
+// ex_02();
+ex_03();
