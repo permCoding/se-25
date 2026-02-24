@@ -169,6 +169,9 @@ s - все точки - dotAll = [.\n\r] - расширяет поведение
 
 > [классы в re](https://javascript.info/regexp-unicode)  
 > [для тренировки](https://regex101.com/)  
+> [тут можно проверить регулярку](https://regexr.com/)  
+> [краткое описание синтаксиса - ШПАРГАЛКА](https://devanych.ru/technologies/shpargalka-po-regulyarnym-vyrazheniyam)  
+> [Регулярные выражения за 100 секунд (ENG) - youtube](https://www.youtube.com/watch?v=sXQxhojSdZM)  
 
 ---  
 
