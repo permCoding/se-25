@@ -8,3 +8,5 @@ console.log(workerData)
 let result = fib(workerData.n)
 
 parentPort.postMessage(result)
+
+// запускается из worker_a_one.js ИЛИ worker_a_mane.js 

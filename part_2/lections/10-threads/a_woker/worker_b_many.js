@@ -16,19 +16,23 @@ const run_thread = (workerData) => {
 
 const main = async () => {
     let start = Date.now()
-    let n = 38
+    let n = 39
     const result = await Promise.all(
         [
-            run_thread({n}),
-            run_thread({n}),
-            run_thread({n}),
-            run_thread({n}),
-            run_thread({'n': n}),
-            run_thread({n}),
-            run_thread({n}),
-            run_thread({n}),
-            run_thread({n}),
-            run_thread({'n': n}),
+            run_thread({n}), // 1.7
+            run_thread({n}), // 1.7
+            run_thread({n}), // 1.8
+            run_thread({n}), // 2.0
+            run_thread({'n': n}), // 2.4
+            run_thread({n}), // 2.8
+            run_thread({n}), // 3.3
+            run_thread({n}), // 3.7
+            run_thread({n}), // 4.2
+            run_thread({'n': n}), // 4.5
+            run_thread({n}), // 5.0
+            run_thread({n}), // 5.3
+            run_thread({n}), // 5.7
+            run_thread({n}), // 6.3
         ]
     )
     let finish = Date.now()
