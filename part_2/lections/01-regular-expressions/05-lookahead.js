@@ -4,7 +4,7 @@
 const log = console.log;
 
 const ex_01 = () => { // найти числа, после которых есть знак валюты
-    const str = 'Цена: 100 рублей, 200 долларов, 300, 555';
+    const str = 'Цена: 100 рублей, 200   долларов, 300, 555 грамм';
     const re = /\d+(?=\s*(рублей|долларов))/g;
     log(str.match(re)); // ['100', '200']
 }
@@ -16,8 +16,9 @@ const ex_02 = () => { // найти слова, после которых идё
 }
 
 const ex_03 = () => { // найти все вхождения "A", после которых есть ещё одна "A"
-    const str = 'ABAAABAAA';
-    const re = /A(?=A)/g;
+    const str = 'ABAAABAAAA';
+    // const re = /A(?=A)/g;
+    const re = /A(A)/g;
     log([...str.matchAll(re)].map(m => ({
         match: m[0],
         index: m.index,
@@ -33,6 +34,6 @@ const ex_03 = () => { // найти все вхождения "A", после к
     ]
 */
 
-ex_01();
-ex_02();
+// ex_01();
+// ex_02();
 ex_03();
