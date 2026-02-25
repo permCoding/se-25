@@ -23,16 +23,16 @@ const main = async () => {
             run_thread({n}), // 1.7
             run_thread({n}), // 1.8
             run_thread({n}), // 2.0
-            run_thread({'n': n}), // 2.4
-            run_thread({n}), // 2.8
-            run_thread({n}), // 3.3
-            run_thread({n}), // 3.7
-            run_thread({n}), // 4.2
-            run_thread({'n': n}), // 4.5
-            run_thread({n}), // 5.0
-            run_thread({n}), // 5.3
-            run_thread({n}), // 5.7
-            run_thread({n}), // 6.3
+            // run_thread({'n': n}), // 2.4
+            // run_thread({n}), // 2.8
+            // run_thread({n}), // 3.3
+            // run_thread({n}), // 3.7
+            // run_thread({n}), // 4.2
+            // run_thread({'n': n}), // 4.5
+            // run_thread({n}), // 5.0
+            // run_thread({n}), // 5.3
+            // run_thread({n}), // 5.7
+            // run_thread({n}), // 6.3
         ]
     )
     let finish = Date.now()
