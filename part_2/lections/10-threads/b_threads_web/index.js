@@ -61,8 +61,12 @@ app.get('/calc_d', (req, res) => {
     const main = async (n) => {
         const results = await Promise.all(
             [
-                run_thread(n), run_thread(n),
-                run_thread(n), run_thread(n),
+                run_thread(n), // 7.1
+                run_thread(n), // 7.1
+                run_thread(n), // 7.2
+                run_thread(n), // 8.0
+                run_thread(n), // 9.4
+                run_thread(n), // 11.3
             ]
         )
         res.status(200)
