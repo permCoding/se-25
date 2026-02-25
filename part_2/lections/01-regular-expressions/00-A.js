@@ -102,40 +102,7 @@ const ex_03 = () => { // match vs matchAll
     log(5, ...str.match(reg5));
 }
 
-const ex_04 = () => { // группы нумерованные и именованные
-    str = '1023 <23.15> 1025 <606.909>';
-    
-    // считают по открывающей скобке
-    let reg1 = /\<\s*((\d+)\.(\d+))\s*\>/g;
-    log(1.1, str.match(reg1));
-    for (let m of str.match(reg1)) {
-        log(1.1, m);
-    }
-    log(1.2, [...str.matchAll(reg1)]);
-    log(1.2, [...str.matchAll(reg1)].map(e => +e[2]));
-    /*
-        поле groups — только для именованных
-        (?<число>\d+) для { groups: { число: '23' } }
-    */
-
-    let reg2 = /\<\s*((?<int>\d+)\.(?<flo>\d+))\s*\>/g;
-    log(2);
-    for (let m of str.matchAll(reg2)) {
-        console.table(m.groups); // console.dir(m.groups);
-    };
-    for (let m of str.matchAll(reg2)) {
-        log(m.groups.int, m.groups.flo);
-        log(JSON.stringify(m.groups, null, 2));
-    };
-    log([...str.matchAll(reg2)].map(e => [+e.groups.int, +e.groups.flo]));
-    /*
-        Node.js показывает [Object: null prototype], чтобы 
-        отличить его от обычных объектов {} с прототипом Object.prototype.
-    */
-};
-
 // ex_00();
 // ex_01();
 // ex_02();
 ex_03();
-// ex_04();
