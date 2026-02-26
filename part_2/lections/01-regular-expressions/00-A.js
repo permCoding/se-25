@@ -1,16 +1,16 @@
 const log = console.log;
 
 const ex_00 = () => { // в строке должно быть
-    let re = /1861/;
+    let re = /1861/; // new RegExp('1861', '');
     let str = 'Отмена крепостного права произошла в 1863 году';
     log( re.test(str) );
     
-    re = /186[0-9]\s/;
-    str = '... перебрался в столицу в 18652342 году';
+    re = /186[0-5]\s/; // \d == [0-9]
+    str = '... перебрался в столицу в 1866 году';
     log( re.test(str) );
-
-    re = /20[012][0-9]/;
-    str = '... родилась 2029 году';
+    
+    re = /20[012][0-6]/;
+    str = '... родилась 2026 году';
     log( re.test(str) );
 
     re = /20[012]\d/;
@@ -18,21 +18,21 @@ const ex_00 = () => { // в строке должно быть
     log( re.test(str) );
 
     re = /20([01]\d|2[0-6])/;
-    str = '... родилась 2029 году';
+    str = '... родилась 2019 году';
     log( re.test(str) );
 }
 
 const ex_01 = () => { // квантификаторы
     let re1 = /ab?/;
     let re2 = /ab{0,1}/;
-    let re3 = /ab{3}/;
-    let re4 = /ab+/;
-    let re5 = /ab*c/;
+    let re3 = /ab{3}[^b]/;
+    let re4 = /ab+/; // b - 1 или более раз
+    let re5 = /ab*c/; // b - 0 или более раз
     let re6 = /a[^c-f]+/;
 
     [
         '',   'a',   'aa', 'aaa', 
-        'ab', 'abb', 'abbb', '_abbbb', 
+        'ab', 'abb', 'abbbs', '_abbbb', 
         'bb', 'bbb', 'acc', 'aabb', '_abc_', '_ac_',
         '## aavv ##', '## aaaa ##'
     ].forEach( 
@@ -103,6 +103,6 @@ const ex_03 = () => { // match vs matchAll
 }
 
 // ex_00();
-// ex_01();
+ex_01();
 // ex_02();
-ex_03();
+// ex_03();
