@@ -29,14 +29,15 @@ const ex_01 = () => { // квантификаторы
     let re4 = /ab+/; // b - 1 или более раз
     let re5 = /ab*c/; // b - 0 или более раз
     let re6 = /a[^c-f]+/;
-
+    let re7 = /^a(cb)*c$/;
+    // 1234_345 - false
     [
         '',   'a',   'aa', 'aaa', 
         'ab', 'abb', 'abbbs', '_abbbb', 
-        'bb', 'bbb', 'acc', 'aabb', '_abc_', '_ac_',
+        'bb', 'bbb', 'acc', 'aabb', '_abc_', '_ac_', 'ac', 'acbc',
         '## aavv ##', '## aaaa ##'
     ].forEach( 
-        (elm, ind) => log( ind, '\t', re6.test(elm), '\t', elm ) 
+        (elm, ind) => log( ind, '\t', re7.test(elm), '\t', elm ) 
     );
 }
 
@@ -80,7 +81,7 @@ const ex_03 = () => { // match vs matchAll
     let str = "qwerty 12   34 56 qwerty";
 
     let reg1 = /./;
-    log(1, str.match(reg1));
+    log(1, str.match(reg1), str.match(reg1)[0]);
 
     let reg2 = /./g;
     log(2, str.matchAll(reg2));  // итератор   
@@ -88,11 +89,12 @@ const ex_03 = () => { // match vs matchAll
     log(2, str.matchAll(reg2).next());
     log(2, str.matchAll(reg2).next().value);
     log(2, str.matchAll(reg2).next().value[0]); // 2 q
-
+    // for i in range(1, 233, 7):
     for (let m of str.matchAll(reg2)) { log(2.1, m[0]); }
 
     let reg3 = /[0-9]{1,}/g;
-    log(3, [...str.matchAll(reg3)].map(e => +e[0]));
+    log(3.1, [...str.matchAll(reg3)]);
+    log(3.2, [...str.matchAll(reg3)].map(m => Number(m[0])));
 
     let reg4 = /[0-9]+/;  // найти первое совпадение
     log(4, str.match(reg4)[0]);
@@ -103,6 +105,6 @@ const ex_03 = () => { // match vs matchAll
 }
 
 // ex_00();
-ex_01();
+// ex_01();
 // ex_02();
-// ex_03();
+ex_03();

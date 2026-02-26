@@ -2,6 +2,8 @@
 // camelCase => snake_case
 const log = console.log;
 
+log('id000_345_888 12_567 123 043_909 888_999_132'.replace(/_/g, ''));
+
 const camelToSnake = str => str.replace(
     /([A-Z])/g, // реализация replaceALL
     match => `_${match.toLowerCase()}` // добавляем _
