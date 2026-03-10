@@ -31,13 +31,12 @@ log( // с дополнительным условием
     }, '')
 ); // A0F
 
-log( // с дополнительным условием
-    arr.reduce((max, cur) => {
-        if (cur.length > max.length) { return cur; }
-        if (cur.length == max.length && cur > max) { return cur; }
-        return max; // иначе оставляем текущего лучшую
-    }, '')
-); // A0F
+const check = (max, cur) => {
+    if (cur.length > max.length) { return cur; }
+    if (cur.length == max.length && cur > max) { return cur; }
+    return max; // иначе оставляем текущего лучшую
+}
+log( arr.reduce(check, '') ); // A0F
 
 
 const maxLength = Math.max(...arr.map(str => str.length));

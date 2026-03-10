@@ -1,6 +1,6 @@
 const log = console.log;
 
-const ex_01 = (str, re) => {
+const ex_01 = (str, re) => { // зечем решать циколм while ?
     const arr = [];
     let m;
     while ((m = re.exec(str)) !== null) {
@@ -13,12 +13,14 @@ const ex_01 = (str, re) => {
 
 const ex_02 = (str, re) => [...str.matchAll(re)].map(m => ( {"flo": m[1]} ));
 
+// но есть ещё вариант с Array.from
 const ex_03 = (str, re) => Array.from(str.matchAll(re)).map(m => ({ flo: m[1] }));
 
+// и он позволяет настроить формирование массива с помощью функции
 const ex_04_ = (str, re) => Array.from(str.matchAll(re), m => m); // посмотрим что внутри
-const ex_04 = (str, re) => Array.from(str.matchAll(re), m => ({ flo: m[1] }) ); // так быстрее
+const ex_04 = (str, re) => Array.from(str.matchAll(re), m => ({ flo: m[1] }) );
 
-const ex_05 = (str, re) => {
+const ex_05 = (str, re) => { // функцию можно усложнить
     return Array.from(str.matchAll(re), ([fullMatch, floatNum], index) => ({
         id: index + 1,
         original: fullMatch,
