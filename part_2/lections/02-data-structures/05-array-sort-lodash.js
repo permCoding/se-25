@@ -1,5 +1,5 @@
 const log = console.log;
-const _ = require('lodash');
+const _ = require('lodash'); // npm i lodash
 
 const ex_01 = (arr) => {
     let comp = (a, b, field) => a[field] >= b[field] ? +1 : -1;
@@ -19,10 +19,14 @@ const ex_02 = (arr) => {
             let direct = directs[i];
             if (a[field] > b[field]) return direct;
             if (a[field] < b[field]) return -direct;
-            // если равны - ищем следующее поле
+            // если равны, НЕТ return - ищем следующее поле 
         }
+        return 0;
     }
-    
+
+    let keys = Object.keys(arr[0]); // ["id", "name", "age"]
+    log(keys);
+
     let fields = ["id", "age", "name"];
     let directs = [-1, -1, +1];
     let res = arr.sort((a,b) => comp(a, b, fields, directs));

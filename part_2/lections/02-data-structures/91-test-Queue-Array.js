@@ -1,4 +1,4 @@
-class Queue {
+class Queue { // очередь на основе массива
     constructor() {
         this.items = [];
     }
@@ -12,7 +12,7 @@ class Queue {
     }
     
     peek() {
-        return this.items[0];
+        return this.items[0];      // получить с вершины без удаления
     }
     
     get length() {

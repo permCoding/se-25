@@ -1,6 +1,6 @@
 const log = console.log;
 
-const isValid = (str) => {
+const isValid = (str) => { // проверка скобочной последовательности
     const stack = []; // стек из массива
 
     for (let chr of str) {
@@ -18,13 +18,17 @@ const isValid = (str) => {
 }
 
 // Тесты
-log(isValid("()"));     // true
-log(isValid("()()()")); // true
-log(isValid("(())()")); // true
-log(isValid("()))"));   // false
-log(isValid("((("));    // false
-log(isValid("("));      // false
-log(isValid(")"));      // false
+const tests = [
+    "()",     // true
+    "()()()", // true
+    "(())()", // true
+    "()))",   // false
+    "(((",    // false
+    "(",      // false
+    ")",      // false
+];
+
+tests.forEach(test => log(isValid(test)));
 
 /*
 можно сделать в виде задачи для самостоятельного исполнения
