@@ -1,7 +1,7 @@
 const log = console.log
 
 const st = new Set([12, 33, 45, 33])
-
+log(st);
 
 st.forEach((value, againValue, set) => { log(value, set.size) })
 // в Set forEach передает значение дважды для совместимости с Map
@@ -21,6 +21,6 @@ for (const key of st.keys()) { log(key) }
 for (const entry of st.entries()) { log(entry) }
 
 
-const pairs = [[0,12], [1,33], [2,45], [3,33]];
-const mp = new Map(pairs);
+const pairs = [[0,12], [1,33], [2,45], [3,33]]
+const mp = new Map(pairs)
 mp.forEach((value, key, map) => { log(key, value, map.size) })

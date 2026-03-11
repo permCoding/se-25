@@ -12,8 +12,13 @@
 const log = console.log;
 
 const str = `
-    id12_345 1024 102 
+    id12_345 1024 102 808_909 80_000 8_909  qwutdfqwy
     12_234_345_456 01_234 _9 2_909
     101_101_
     202_202
 `;
+
+const re = /\b[1-9]\d{0,2}(_\d{3})*\b/g;
+log(1, str.match(re));
+
+log(2, str.replace(re, m => m.replace(/_/g, '')));

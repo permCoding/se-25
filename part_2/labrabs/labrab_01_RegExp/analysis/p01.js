@@ -13,7 +13,7 @@ const ex_01 = (str, re) => { // зечем решать циклом while ?
 
 const ex_02 = (str, re) => [...str.matchAll(re)].map(m => ( {"flo": m[1]} ));
 
-// но есть ещё вариант с Array.from
+// но есть ещё вариант с Array.from // ({ flo: m[1] }) => { return { flo: m[1] } }
 const ex_03 = (str, re) => Array.from(str.matchAll(re)).map(m => ({ flo: m[1] }));
 
 // и он позволяет настроить формирование массива с помощью функции
@@ -27,9 +27,9 @@ const ex_05_ = (str, re) => { // функцию можно усложнить
         return {
             id: i + 1,
             original: fullMatch,
-            flo: floatNum,
-            rounded: Math.round(parseFloat(floatNum) * 100) / 100,
-            // rounded: parseFloat(parseFloat(floatNum).toFixed(2)),
+            flo: +floatNum,
+            // rounded: Math.round(parseFloat(floatNum) * 100) / 100,
+            rounded: parseFloat(parseFloat(floatNum).toFixed(2)),
             isValid: parseFloat(floatNum) > 1.00
         }
     });
@@ -39,9 +39,9 @@ const ex_05 = (str, re) => { // функцию можно усложнить
     return Array.from(str.matchAll(re), ([fullMatch, floatNum], index) => ({
         id: index + 1,
         original: fullMatch,
-        flo: floatNum,
-        rounded: Math.round(parseFloat(floatNum) * 100) / 100, // 350 ms
-        // rounded: parseFloat(parseFloat(floatNum).toFixed(2)), // 450 ms
+        flo: +floatNum,
+        // rounded: Math.round(parseFloat(floatNum) * 100) / 100, // 350 ms
+        rounded: parseFloat(parseFloat(floatNum).toFixed(2)), // 450 ms
         isValid: parseFloat(floatNum) > 1.00
     }));
 }
@@ -75,7 +75,7 @@ const str = `
     Реже встречается Строка   2.23. 
     25 строка удалена.
     Иногда обнаруживается строка 
-    0.1024
+    0.1724
 `; // выбрать вещественные числа после слова "строка"
 const re = /Строка[\s]*?(\d+\.\d+)/gi;
 
@@ -84,8 +84,8 @@ log(2, ex_02(str, re));  // [ { flo: '2.23' }, { flo: '0.1024' } ]
 log(3, ex_03(str, re));  // [ { flo: '2.23' }, { flo: '0.1024' } ]
 log(ex_04_(str, re));
 log(4, ex_04(str, re));  // [ { flo: '2.23' }, { flo: '0.1024' } ]
-log(ex_05_(str, re));
-log(ex_05(str, re));
+log(5.1, ex_05_(str, re));
+log(5.2, ex_05(str, re));
 
 ex_time(str, re);
 
