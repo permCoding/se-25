@@ -1,6 +1,6 @@
 const log = console.log;
 
-const ex_01 = () => {
+const ex_01 = () => { // отсортировать симолы в строке
     const str = "2023453290002";
 
     const arr = Array.from(str).map(Number);
