@@ -15,7 +15,7 @@ const ex_02 = () => {
     const setA = new Set([1, 2, 7]);
     const setB = new Set([3, 4, 8]);
 
-    log(setA.isDisjointFrom(setB)); // true
+    log(setA.isDisjointFrom(setB)); // true - нет общих элементов
     log(setA.union(setB)); // Set(6) { 1, 2, 7, 3, 4, 8 }
 
     for (let elm of setA) {
