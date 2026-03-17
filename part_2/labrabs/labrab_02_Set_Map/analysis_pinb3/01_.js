@@ -1,6 +1,26 @@
 const fs = require('fs');
 const readline = require('readline');
 
+function test_way01() {
+    fs
+        .readFileSync('../sem_02_labrab_01.csv', 'utf-8') // './sem_02_labrab_01_test.csv'
+        .split(/\r\n|\n/)
+        .forEach((line, index) => {
+            const nums = line.trim().split(' ').map(Number);
+            const allOdd = nums.every(n => n % 2);
+            const allDistinct = new Set(nums).size === nums.length;
+            
+            // const isSorted = nums.toString() === nums.toSorted((a,b) => a-b).toString();
+            // const isSorted = nums.toSorted((a,b) => a-b).every((val, ind) => val === nums[ind]);
+            const isSorted = nums.every((num, ind) => ind === 0 || num > nums[ind-1]); // fastest 1 2 3 ?
+            // > or >= - так как все различны, то >
+            if (allOdd && allDistinct && isSorted) { 
+                console.log(index+1);
+            }
+        })
+}
+
+
 function task01_way01() {
     console.time('FullLoad');
     fs
@@ -10,8 +30,12 @@ function task01_way01() {
             const nums = line.trim().split(' ').map(Number);
             const allOdd = nums.every(n => n % 2);
             const allDistinct = new Set(nums).size === nums.length;
+            
             // const isSorted = nums.toString() === nums.toSorted((a,b) => a-b).toString();
-            const isSorted = nums.every((num, ind) => ind === 0 || num > nums[ind-1]);
+            const isSorted = nums.toSorted((a,b) => a-b).every((val, ind) => val === nums[ind]);
+            // const isSorted = nums.toSorted((a,b) => a-b).every((value, index) => value === nums[index]);
+
+            // const isSorted = nums.every((num, ind) => ind === 0 || num > nums[ind-1]);
             if (allOdd && allDistinct && isSorted) { 
                 console.log(index+1);
             }
@@ -46,6 +70,7 @@ async function task01_way02() {
 }
 
 
+// test_way01();
 task01_way01();
 task01_way02();
 
