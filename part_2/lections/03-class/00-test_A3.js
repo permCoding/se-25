@@ -1,9 +1,8 @@
-// Шаг 1: Создаем объект-прототип
 const dogPrototype = {
     to_speak: function() {
         return this.name + " says Гав-гав!";
     }
-};
+}; // Шаг 1: Создаем объект-прототип
 
 // Шаг 2: Создаем новый объект, привязывая его к прототипу
 const myDog = Object.create(dogPrototype);
