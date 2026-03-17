@@ -20,24 +20,25 @@ const ex01 = () => {
 /** добавим метод */
 const ex02 = () => {
     let obj = { "x": 12, "y": 10 }
-    log(obj)
+    log(2.1, obj)
 
     obj.get_divmod = function () {
         let a = this.x, b = this.y
         return { 'div': int_div(a,b), 'mod': a%b }
     }
-    log(obj)
+    log(2.2, obj)
     
     let result = obj.get_divmod(13, 4)
-    log(result)
+    log(2.3, result)
     
     let { div, mod } = result
-    log(`div = ${div}, mod = ${mod}`)
+    log(2.4, `div = ${div}, mod = ${mod}`)
 
     log(Object.keys(obj))
     log(Object.values(obj))
     log(Object.entries(obj))
     log(Object.entries(obj.get_divmod))
+    // выведем только методы
     Object.entries(obj).forEach(([key, value]) => {
         if (typeof value === 'function') {
             log(`${key}:`, value.toString());
@@ -48,5 +49,5 @@ const ex02 = () => {
 const int_div = (a, b) => Math.floor(a/b)
 
 console.clear()
-ex01(); log()
+ex01(); log(' - - - - - ')
 ex02()

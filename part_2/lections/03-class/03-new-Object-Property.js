@@ -26,7 +26,8 @@ Object.defineProperty(car, "Year", {
 log(2, car);
 car.Year = 2026; // доступ к полю через сеттер - Свойство
 log(3, car);
-log(4, `Year = ${car.Year}`); // 26
-log(5, `_year = ${car._year}`); // 2026
+log(4, `Year = ${car.Year}`); // 26 - через геттер
+log(5, `_year = ${car._year}`); // 2026 - само поле
 
-for (let key in car) { log(key); } // enumerable: true
+for (let key in car) { log(key, car[key]); } // enumerable: true
+log(Object.keys(car)); // публичное поле открыто
