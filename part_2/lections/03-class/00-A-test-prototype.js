@@ -5,7 +5,7 @@
 const log = console.log;
 
 const ex_01 = () => { // в объектах на основе Object.create()
-    const Dog = { // это объект прототип
+    const Dog = { // это объект родительский
         to_speak: function() {
             return this.name + " говорит Гав-гав!";
         }
@@ -21,6 +21,11 @@ const ex_01 = () => { // в объектах на основе Object.create()
     delete myDog.to_speak; // удалим ссылку
 
     log(12, myDog.to_speak()); // Мухтар говорит Гав-гав! из родительского объекта
+
+    Dog["id"] = 123;
+    log(13, myDog.id); // из родительского объекта
+    log(13, myDog["id"]); // из родительского объекта
+    log(Dog.prototype); // undefined
 }
 
 const ex_02 = () => { // в объектах на основе функций-конструкторов
@@ -28,7 +33,7 @@ const ex_02 = () => { // в объектах на основе функций-к
         this.name = name;
     }
     
-    Dog.prototype.to_speak = function() {
+    Dog.prototype.to_speak = function() { // создаём в родительском
         return this.name + " говорит Гав-гав!";
     }; // методы добавляем в prototype функции-конструктора
     
@@ -40,13 +45,15 @@ const ex_02 = () => { // в объектах на основе функций-к
         return this.name + " говорит wow-wow! (из родительского)";
     };
     
-    log(22, myDog.to_speak()); // "говорение" - свой метод
+    log(22, myDog.to_speak()); // "говорение" - свой метод ПОКА
     
-    delete myDog.to_speak;
-    log(23, myDog.to_speak()); // "Мухтар говорит Гав-гав! (обновлено)" - ДЕЛЕГИРОВАНИЕ РАБОТАЕТ!
+    delete myDog.to_speak; // удаляем свой
+    log(23, myDog.to_speak()); // "Мухтар говорит Гав-гав!" - ДЕЛЕГИРОВАНИЕ РАБОТАЕТ
     
     log(24, myDog.prototype); // undefined
     // prototype — это свойство функций-конструкторов, а не созданных объектов
+    log(25, Dog.prototype); // объект с методами
+    log(26, Dog.prototype.to_speak.toString()); // объект с методами
 }
 
 ex_01(); log();

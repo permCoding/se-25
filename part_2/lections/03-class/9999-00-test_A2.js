@@ -15,7 +15,7 @@ myDog.name = "Мухтар"; // добавим
 myDog.to_speak = () => "говорение"; // заменим
 
 log(myDog.to_speak()); // говорение
-log(dogPrototype.prototype); 
+log(dogPrototype.prototype);  // undefined
 
 /* 
     но dogPrototype.prototype не существует
@@ -28,16 +28,16 @@ log(dogPrototype.__proto__);
 
 // = = = = теперь поменяем в прототипе
 
-// dogPrototype.prototype.to_speak = function() {
-//     if (this.name) { this.name === "Артемон"; }
-//     return this.name + " говорит Гав-гав!";
-// }
+dogPrototype.prototype.to_speak = function() {
+    if (this.name) { this.name === "Артемон"; }
+    return this.name + " говорит Гав-гав!";
+}
 
-// console.log(myDog.to_speak()); // говорение
+console.log(myDog.to_speak()); // говорение
 
-// delete myDog.to_speak; // удалим ссылку
+delete myDog.to_speak; // удалим ссылку
 
-// console.log(myDog.to_speak()); // Мухтар говорит Гав-гав!
+console.log(myDog.to_speak()); // Мухтар говорит Гав-гав!
 
 // делегирование: если убрать to_speak у myDog
 // он найдется в родительском объекте

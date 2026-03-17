@@ -1,23 +1,3 @@
-const dogPrototype = {
-    to_speak: function() {
-        return this.name + " says Гав-гав!";
-    }
-}; // Шаг 1: Создаем объект-прототип
-
-// Шаг 2: Создаем новый объект, привязывая его к прототипу
-const myDog = Object.create(dogPrototype);
-myDog.name = "Бобик";
-myDog.to_speak = () => "говорение";
-
-console.log(myDog.to_speak());
-
-delete myDog.to_speak;
-
-console.log(myDog.to_speak());
-
-// важно, если убрать to_speak у myDog
-// он найдется в родительском объекте - делегирование
-
 // и вот как в прототипе можно менять что-то:
 const ex_01 = (arr) => {
     Array.prototype.print = function(sep=' ', pref='') {
