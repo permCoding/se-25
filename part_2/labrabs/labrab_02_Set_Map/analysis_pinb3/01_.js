@@ -31,8 +31,8 @@ function task01_way01() {
             const allOdd = nums.every(n => n % 2);
             const allDistinct = new Set(nums).size === nums.length;
             
-            // const isSorted = nums.toString() === nums.toSorted((a,b) => a-b).toString();
-            const isSorted = nums.toSorted((a,b) => a-b).every((val, ind) => val === nums[ind]);
+            const isSorted = nums.toString() === nums.toSorted((a,b) => a-b).toString();
+            // const isSorted = nums.toSorted((a,b) => a-b).every((val, ind) => val === nums[ind]);
             // const isSorted = nums.toSorted((a,b) => a-b).every((value, index) => value === nums[index]);
 
             // const isSorted = nums.every((num, ind) => ind === 0 || num > nums[ind-1]);
@@ -70,9 +70,9 @@ async function task01_way02() {
 }
 
 
-// test_way01();
-task01_way01();
-task01_way02();
+test_way01();
+// task01_way01();
+// task01_way02();
 
 /*
 я сделал большой файл с данными на 7.3 MByte и 
