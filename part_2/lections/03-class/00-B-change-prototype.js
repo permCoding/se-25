@@ -41,6 +41,6 @@ const ex_args_03 = (arr) => { // как пропустить агрументы 
 
 const arr = [12, 34, 56, 78, 90];
 ex_01(arr);
-ex_args_01(arr);
-ex_args_02(arr);
-ex_args_03(arr);
+// ex_args_01(arr);
+// ex_args_02(arr);
+// ex_args_03(arr);

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const readline = require('readline');
+const log = console.log;
 
 function test_way01() {
     fs
@@ -11,18 +12,19 @@ function test_way01() {
             const allDistinct = new Set(nums).size === nums.length;
             
             // const isSorted = nums.toString() === nums.toSorted((a,b) => a-b).toString();
+            // const isSorted = nums.join('') === nums.toSorted((a,b) => a-b).join('');
             // const isSorted = nums.toSorted((a,b) => a-b).every((val, ind) => val === nums[ind]);
-            const isSorted = nums.every((num, ind) => ind === 0 || num > nums[ind-1]); // fastest 1 2 3 ?
+            const isSorted = nums.every((num, ind) => ind === 0 || num > nums[ind-1]);
             // > or >= - так как все различны, то >
-            if (allOdd && allDistinct && isSorted) { 
-                console.log(index+1);
-            }
+            
+            if (allOdd && allDistinct && isSorted) { console.log(index+1); }
         })
 }
 
 
 function task01_way01() {
     console.time('FullLoad');
+
     fs
         .readFileSync('../sem_02_labrab_01.csv', 'utf-8') // './sem_02_labrab_01_test.csv'
         .split(/\r\n|\n/)
@@ -31,17 +33,15 @@ function task01_way01() {
             const allOdd = nums.every(n => n % 2);
             const allDistinct = new Set(nums).size === nums.length;
             
-            const isSorted = nums.toString() === nums.toSorted((a,b) => a-b).toString();
+            // const isSorted = nums.toString() === nums.toSorted((a,b) => a-b).toString();
+            // const isSorted = nums.join('') === nums.toSorted((a,b) => a-b).join('');
             // const isSorted = nums.toSorted((a,b) => a-b).every((val, ind) => val === nums[ind]);
-            // const isSorted = nums.toSorted((a,b) => a-b).every((value, index) => value === nums[index]);
+            const isSorted = nums.every((num, ind) => ind === 0 || num > nums[ind-1]);
+            // имеет ли смысл указывать >=
+            if (allOdd && allDistinct && isSorted) { console.log(index+1); }
+        }) // [1,2,2,2,3,4,5]
 
-            // const isSorted = nums.every((num, ind) => ind === 0 || num > nums[ind-1]);
-            if (allOdd && allDistinct && isSorted) { 
-                console.log(index+1);
-            }
-        })
-        console.timeEnd('FullLoad');
-    
+    console.timeEnd('FullLoad');
     const memUsage = process.memoryUsage(); // мониторинг расходов памяти
     console.log('FullLoad Memory:', Math.round(memUsage.heapUsed / 1024 / 1024) + 'MB');
 }
@@ -126,4 +126,16 @@ Stream Memory: 10MB
 - если файл до 100 МБ - подход 1 с полной загрузкой будет быстрее
 - если файл более 100 МБ - построчное чтение эффективнее
 - если файл неизвестного размера - построчное чтение безопаснее
+*/
+
+
+/*
+let arr = [100,99,3,4];
+let arr2 = arr.toSorted((a,b) => a-b);
+log(arr, arr2);
+
+arr = [1,2,3];
+log(arr, arr.toSorted((a,b) => a-b));
+log(arr.toString() == arr.toSorted((a,b) => a-b).toString());
+log(arr.join('') == arr.toSorted((a,b) => a-b).join(''));
 */

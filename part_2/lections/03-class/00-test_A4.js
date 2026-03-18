@@ -18,15 +18,16 @@ Array.prototype.print_01 = function() {
     return `print_01 => ${this.join(', ')}`;
 } // this это ссылка на сам объект-массив
 
-function proto_func() { return `print_01_ => ${this.join('; ')}`; }
+function proto_func() { 
+    log('this =', this);
+    return `print_01_ => ${this.join('; ')}`; 
+}
 
 Array.prototype.print_01_ = proto_func; // можно просто сослаться на функцию
 
 // = = = = = = 
 
-Array.prototype.print_02 = () => {
-    return `02 => ${this.join(', ')}`;
-}
+Array.prototype.print_02 = () => { return `02 => ${this.join(', ')}`; }
 
 Array.prototype.print_02 = () => `02 => ${this.join(', ')}`;
 
@@ -57,9 +58,11 @@ const arr = [12, 34, 56, 78, 90];
 
 log(1, arr.print_01());
 log(1, arr.print_01_());
-    // log(arr.print_02());
-    // log(arr.print_02_());
-log(3, arr.print_03());
+
+// log(arr.print_02());
+// log(arr.print_02_());
+
+// log(3, arr.print_03());
 // log(4, arr.print_04());
 // log(5, arr.print_05());
 
@@ -69,3 +72,5 @@ log(3, arr.print_03());
 - в глобальной области видимости this ссылается на глобальный объект
 - это window в браузере или global в Node.js
 */
+
+String.prototype.print = function() { }

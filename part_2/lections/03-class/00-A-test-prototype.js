@@ -21,10 +21,11 @@ const ex_01 = () => { // в объектах на основе Object.create()
     delete myDog.to_speak; // удалим ссылку
 
     log(12, myDog.to_speak()); // Мухтар говорит Гав-гав! из родительского объекта
-
-    Dog["id"] = 123;
+    let key = "id";
+    Dog[key] = 123;
     log(13, myDog.id); // из родительского объекта
     log(13, myDog["id"]); // из родительского объекта
+    log(13, myDog[key]); // из родительского объекта
     log(Dog.prototype); // undefined
 }
 
@@ -56,5 +57,5 @@ const ex_02 = () => { // в объектах на основе функций-к
     log(26, Dog.prototype.to_speak.toString()); // объект с методами
 }
 
-ex_01(); log();
+// ex_01(); log();
 ex_02();
