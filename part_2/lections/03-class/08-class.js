@@ -18,11 +18,13 @@ let students =  [
 ];
 
 students.forEach(st => log(st));
-students.forEach(st => log(st.toString())); // переопределили метод
+students.forEach(st => log('_', st.toString())); // переопределили метод
 
-log(students[0] > students[1]? 'старше': 'младше');
+log(students[0] > students[1]? 'старше': 'младше'); // переопределили valueOf
 log(students[1] > students[2]? 'старше': 'младше');
 
 students.sort((a, b) => a.age - b.age);
 
 students.forEach(st => log(st.toString()));
+
+// проверить .toSorted()

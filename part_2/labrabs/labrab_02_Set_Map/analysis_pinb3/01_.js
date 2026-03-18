@@ -50,7 +50,7 @@ async function task01_way02() {
     console.time('Stream');
     const rl = readline.createInterface({
         input: fs.createReadStream('../sem_02_labrab_01.csv', { encoding: 'utf-8' }) 
-                // или 'windows-1251'     // 'sem_02_labrab_01_test.csv'
+                // или 'ascii'     // 'sem_02_labrab_01_test.csv'
     });
     let lineNum = 1;
     for await (const line of rl) {
@@ -70,9 +70,14 @@ async function task01_way02() {
 }
 
 
-test_way01();
-// task01_way01();
-// task01_way02();
+// test_way01();
+task01_way01();
+task01_way02();
+
+// const memUsage = process.memoryUsage();
+// console.log(memUsage);
+
+// console.log(typeof null); // object
 
 /*
 я сделал большой файл с данными на 7.3 MByte и 
