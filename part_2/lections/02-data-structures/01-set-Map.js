@@ -1,6 +1,31 @@
 const log = console.log;
 
-const ex_01 = () => { // отсортировать симолы в строке
+const task_dop_1 = () => {  
+    const str = "202345329007";
+    log('dop_1A =', Array
+        .from(str)
+        .map(Number)
+        .sort(
+            // if
+            // if
+            // if
+        )
+        .join('')
+    ); // 000222497533
+    log('dop_1B =', Array
+        .from(str)
+        .map(Number)
+        .sort(
+            // (_?_:_) 
+        )
+        .join('')
+    ); // 000222497533
+}
+
+task_dop_1();
+
+
+const ex_01 = () => { // отсортировать символы в строке
     const str = "2023453290002";
     // 0000222249533
     const arr = Array
