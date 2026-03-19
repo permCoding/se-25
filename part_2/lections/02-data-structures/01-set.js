@@ -1,33 +1,18 @@
 const log = console.log;
 
-const ex_01 = () => { // отсортировать симолы в строке
+const ex_01 = () => { // отсортировать символы в строке
     const str = "2023453290002";
-    // 0000222249533
-    const arr = Array
-        .from(str)
-        .map(Number);
-        // .map(elm => Number(elm));
-        // .map(elm => +elm);
+
+    const arr = Array.from(str).map(Number);
     
     log(arr);
-    // arr.sort((a,b) => a-b); // сортирует на месте
-    log('---',
-        arr
-            .toSorted((a,b)=> a-b)
-            // .map(String)
-            // .map(elm => elm.toString())
-            // .map(elm => String(elm))
-            .join('')
-    );
-    
-    // отсортировать символы в строке без повторов
     const set = new Set(arr);
     log(set, set.size);
     log([...set].toSorted());
     log([...set].toSorted().map(String).join(""));    
 }
 
-const ex_02 = () => {
+const ex_02 = () => { // 
     const str = "мама мыла раму мылом и руками";
     const set = new Set();
     for (let i = 0; i < str.length; i++) {
@@ -81,7 +66,7 @@ const ex_05 = () => {
 }
 
 ex_01();
-// ex_02();
-// ex_03();
-// ex_04();
-// ex_05();
+ex_02();
+ex_03();
+ex_04();
+ex_05();
