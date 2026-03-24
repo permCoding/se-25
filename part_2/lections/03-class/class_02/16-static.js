@@ -1,4 +1,5 @@
 // статические свойства и методы
+const log = console.log;
 
 class Ork {
     static amount = 0;
@@ -7,18 +8,31 @@ class Ork {
         Ork.amount_inc();
     }
     static amount_inc() {
-        this.amount++; // this обращается к классу
+        // this.amount++; // this обращается к классу
+        Ork.amount++;     // но так нагляднее
     }
     static amount_dec() {
-        this.amount--;
+        if (this.amount > 0) {  // защита от отрицательного кол-ва
+            this.amount--;
+        }
     }
-    static del_ork(arr, index) {
-        delete arr[index];
-        Ork.amount_dec();
+    // static del_ork(arr, index) {
+    //     delete arr[index]; // НЕ удаляет элемент массива а оставляет undefined
+    //     Ork.amount_dec();
+    // }
+    static del_ork(arr, index) { // удаляет элемент массива
+        if (index >= 0 && index < arr.length) {
+            arr.splice(index, 1);  // удаляет элемент и сдвигает массив
+            Ork.amount_dec();
+            return true;
+        }
+        return false;
     }
-    show_info() {
-        console.log(this.name); // обращается к объекту
-        console.log(`их всего - ${Ork.amount}`);
+    static get totalCount() {  // статический геттер
+        return Ork.amount;
+    }
+    toString() {
+        return `Ork: ${this.name}`;
     }
 }
 
@@ -28,14 +42,11 @@ let names = ["Масяня","Гена","Логан"];
 let orks = [];
 for (let name of names) {
     orks.push(new Ork(name));
-    orks[orks.length-1].show_info();
+    log(orks.length-1, orks[orks.length-1]);
 }
 
-console.log("- ".repeat(9));
+log("- ".repeat(9));
+log(orks); Ork.del_ork(orks, 0); log(orks);
+log(`Всего осталось: ${Ork.totalCount}`);
 
-console.log(orks);
-Ork.del_ork(orks, 0);
-console.log(orks);
-for (let item of orks.filter(x => x != undefined)) {
-    item.show_info();
-}
+log("- ".repeat(9)); orks.forEach(ork => log(ork));

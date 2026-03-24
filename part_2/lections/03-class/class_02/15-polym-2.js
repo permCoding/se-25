@@ -1,8 +1,9 @@
-// полиморфизм
-// как переопределение метода
+// полиморфизм как переопределение метода
 // один метод - разные реализации
 // но можем переопределять не полностью, 
-// а дополнить родительский метод
+//         !!! а дополнить родительский метод !!!
+
+const log = console.log;
 
 class Figure {
     constructor(len, name="Линия") {
@@ -10,7 +11,7 @@ class Figure {
         this.len = len;
     }
     get_area() { return this.len };
-    info() { console.log(`Фигура ${this.name}; Размер = ${this.len}`); }
+    info() { log(`Фигура ${this.name}; Размер = ${this.len}`); }
 }
 
 class Square extends Figure { // расширение класса
@@ -19,7 +20,7 @@ class Square extends Figure { // расширение класса
     }
     get_area() { return Math.pow(this.len, 2); }
     info() {
-        super.info();
+        super.info(); // дополнить родительский метод
         return `Площадь фигуры = ${this.get_area()}`;
     }
 }
@@ -30,13 +31,19 @@ class Circle extends Figure { // расширение класса
     }
     get_area() { return (Math.PI * Math.pow(this.len, 2)).toFixed(2) };
     info() {
-        super.info();
+        super.info(); // дополнить родительский метод
         return `Площадь фигуры = ${this.get_area()}` 
     };
 }
 
-console.clear();
-let figa = new Circle(10);
-console.log(figa.info());
-let figb = new Square(10);
-console.log(figb.info());
+let figa = new Circle(10); log(figa.info());
+
+let figb = new Square(10); log(figb.info());
+
+/*
+Фигура Круг; Размер = 10
+Площадь фигуры = 314.16      // это дополнение
+
+Фигура Квадрат; Размер = 10
+Площадь фигуры = 100         // это дополнение
+*/

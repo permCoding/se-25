@@ -1,18 +1,16 @@
 // полиморфизм
-// фигура
-// свойство Размер (сторона, радиус)
-// метод Площадь
+// базовый Фигура
 // наследники Круг, Квадрат, Треугольник
-// переопределение метода Площадь
-// один метод - разные реализации
+// переопределение методов базового класс
+// разные реализации в наследниках
 
-class Figure {
+class Figure { // базовый класс
     constructor(len, name="Линия") {
         this.name = name;
         this.len = len;
     }
-    get_area = () => this.len;
-    info = () => { 
+    get_area() { return this.len; }
+    info() { 
         return `Фигура ${this.name}; Размер = ${this.len}` 
     };
 }
@@ -21,8 +19,8 @@ class Square extends Figure { // расширение класса
     constructor(len) {
         super(len, "Квадрат");
     }
-    get_area = () => { return Math.pow(this.len, 2); }
-    info = () => { 
+    get_area() { return Math.pow(this.len, 2); }
+    info() { 
         return `Площадь фигуры ${this.name} = ${this.get_area()}` 
     };
 }
@@ -31,8 +29,8 @@ class Circle extends Figure { // расширение класса
     constructor(len) {
         super(len, "Круг");
     }
-    get_area = () => { return (Math.PI * Math.pow(this.len, 2)).toFixed(2) };
-    info = () => { 
+    get_area() { return (Math.PI * Math.pow(this.len, 2)).toFixed(2) };
+    info() { 
         return `Площадь фигуры ${this.name} = ${this.get_area()}` 
     };
 }
@@ -44,7 +42,25 @@ let figs =  [
 ];
 
 console.table(figs);
+figs.forEach(fig => console.log(fig));
+figs.forEach(fig => console.log(fig.info()));
+figs.forEach(fig => console.dir(fig));
 
-for (let fig of figs) {
-    console.log(fig.info());
+/* 
+        log и dir дают одинаковые выводы когда 
+        нет приватных полей и вложенных структур
+
+class Test {
+    #private = 'secret'; // с приватными полями
+    public = 'visible';
 }
+const obj = new Test();
+console.log(obj);  // Test { public: 'visible' }
+console.dir(obj);  // Test { public: 'visible', #private: 'secret' }
+
+const deep = { с глубокой вложенностью
+    a: { b: { c: { d: { e: 'deep' } } } } 
+};
+console.log(deep);  // { a: { b: { c: [Object] } } } (сворачивает)
+console.dir(deep, { depth: null });  // полная структура
+*/

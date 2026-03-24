@@ -12,7 +12,7 @@ let source = {
 } // исходный объект
 
 let target = { 
-    ...source, 
+    ...source, // деструктуризация
     email: "xxx@gmail.com"
 }; // копируем поля объекта в цикле
  

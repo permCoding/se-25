@@ -33,9 +33,6 @@ const ex_02 = (id = 0) => {
 let source = { // создали первый объект
     name: 'Alex',
     age: 22,
-    
-    // toString: () => `name: ${this.name}, age: ${this.age}`, // анонимные не работают
-    // toString: function() { return `name: ${this.name}, age: ${this.age}`},
     toString() { return `name: ${this.name}, age: ${this.age}`; },
     valueOf() { return this.age; }
 };

@@ -3,7 +3,7 @@
 const log = console.log;
 
 function ex_01() { // скопировать в пустой объект
-    let source = {
+    let source = { // объект источник
         name: 'Alex',
         age: 22,
         toString: function () {
@@ -11,16 +11,19 @@ function ex_01() { // скопировать в пустой объект
         }
     };
     
-    let target = Object.assign({}, source); // назначить все свойства по отдельности в пустой объект
+    let target = Object.assign({}, source); // добавить все свойства в пустой объект
 
     source.age += 1;
     
-    log(`source => ${source.toString()}`);
-    log(`target => ${target.toString()}`);
+    log(`1 source => ${source.toString()}`);
+    log(`1 target => ${target.toString()}`);
 
-    log(`source => ${source}`);
-    log(`target => ${target}`); // при интерполяции приведение к строке отличается
-    log(target); // для сравнения
+    log(`2 source => ${source}`);
+    log(`2 target => ${target}`); // при интерполяции срабатывает .toString()
+                               // НЕ вызывает toString, показывает структуру объекта
+    log(3, target);            // для сравнения { name: 'Alex', age: 22, toString: [Function: toString] }
+    log(3, target.toString()); // для сравнения name: Alex, age: 22
+    log(3, String(target));    // для сравнения name: Alex, age: 22
 }
 
 
@@ -37,10 +40,8 @@ function ex_02() { // добавить в существующий объект
     
     log(`source => ${source}`);
     log(`target => ${target}`);
-
-    for (let item in target) { // перебрать поля объекта
-        log(item, target[item]);
-    }
+            // перебрать поля объекта
+    for (let item in target) log(item, target[item]);
 
     log(JSON.stringify(target));
     log(JSON.stringify(source));
@@ -63,3 +64,10 @@ console.clear();
 ex_01();
 // ex_02();
 // ex_03();
+
+/*
+Правила преобразования объектов в строку:
+- в строковой интерполяции `${obj}`  - вызывается toString()
+- при конкатенации строк ("" + obj)  - вызывается toString()
+- отдельный аргумент в console.log() - вызывается внутреннее представление объекта
+*/

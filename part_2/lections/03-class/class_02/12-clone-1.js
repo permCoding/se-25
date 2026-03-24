@@ -2,6 +2,7 @@
 // неглубокое клонирование 
 
 const _ = require('lodash');
+const log = console.log;
 
 let source = {
     name: 'Alex',
@@ -15,5 +16,12 @@ let target = _.clone(source); // клонируем объект
 
 source.age += 1;
 
-console.log(`source => ${source.toString()}`);
-console.log(`target => ${target.toString()}`);
+log(`source => ${source.toString()}`); // .toString()
+log(`target => ${target.toString()}`);
+
+log(Object.keys(target));
+log(Object.keys(source));
+
+log(target); log(source);
+
+

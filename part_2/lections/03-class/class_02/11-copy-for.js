@@ -6,7 +6,7 @@ const log = console.log;
 function copy_object(obj) { // копируем содержимое объекта
 	let obj_new = {};
 	for (let key in obj) { // все параметры по отдельности в цикле скопируем
-		obj_new[key] = obj[key];
+		obj_new[key] = obj[key]; // присвоим в новый объект - поверхностно (для примитивов)
 	}
 	return obj_new;
 }
