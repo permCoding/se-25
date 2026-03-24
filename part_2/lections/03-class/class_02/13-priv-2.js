@@ -6,7 +6,7 @@ class Student {
     #name = ''; // приватное поле
 
     constructor(line) {
-        this.#name = line;
+        this.#name = line; // тут нужна валидация
     }
 
     /**
@@ -17,7 +17,8 @@ class Student {
     }
 
     get name() { // публичный метод
-        return this.#name; // уже не нужен .trim(), так как в #name только через setter
+        return this.#name; // уже не нужен .trim(), 
+                           // так как в #name только через setter
     }
 }
 
@@ -31,3 +32,5 @@ log(stud.name);
 stud.name = '    Петро ';
 log(stud);      // Student {} - приватные поля не видны
 log(stud.name); // "Петро"
+
+console.dir(stud, { showHidden: true }); // показать приватные поля

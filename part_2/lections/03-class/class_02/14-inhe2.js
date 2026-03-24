@@ -1,4 +1,4 @@
-// наследование как расширение
+// наследование (inheritance) как расширение
 // перегрузка конструктора, функция super
 
 const log = console.log;
@@ -32,6 +32,7 @@ class Student extends Human { // расширение класса
     constructor(fullName, group='ПИб-11') { // есть параметр по умолчанию
         // Форматируем имя перед передачей в родительский конструктор
         const formattedName = Student.formatName(fullName);
+        // const formattedName = this.formatName(fullName); // this => Student а не на объект
         super(formattedName);
         this.#group = group;
     }

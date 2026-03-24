@@ -14,16 +14,15 @@ function ex_01() { // скопировать в пустой объект
     let target = Object.assign({}, source); // добавить все свойства в пустой объект
 
     source.age += 1;
-    
-    log(`1 source => ${source.toString()}`);
-    log(`1 target => ${target.toString()}`);
 
-    log(`2 source => ${source}`);
-    log(`2 target => ${target}`); // при интерполяции срабатывает .toString()
+    log(`1 source => ${source}`);
+    
+    // поля не поменялись !
+    log(`1 target => ${target}`); // при интерполяции срабатывает .toString()
                                // НЕ вызывает toString, показывает структуру объекта
-    log(3, target);            // для сравнения { name: 'Alex', age: 22, toString: [Function: toString] }
-    log(3, target.toString()); // для сравнения name: Alex, age: 22
-    log(3, String(target));    // для сравнения name: Alex, age: 22
+    log(2, target); // для сравнения { name: 'Alex', age: 22, toString: [Function: toString] }
+    log(2, target.toString()); // для сравнения name: Alex, age: 22
+    log(2, String(target));    // для сравнения name: Alex, age: 22
 }
 
 
@@ -41,29 +40,35 @@ function ex_02() { // добавить в существующий объект
     log(`source => ${source}`);
     log(`target => ${target}`);
             // перебрать поля объекта
-    for (let item in target) log(item, target[item]);
+    for (let key in target) log(key, ":", target[key]);
+    Object.keys(target).forEach(key => { log(target[key]) });
 
-    log(JSON.stringify(target));
-    log(JSON.stringify(source));
+    log(JSON.stringify(target, null, 2));
+    log(JSON.stringify(source, null, 2));
 }
 
 
 function ex_03() { // добавить несколько объектов
     let obj = {id: 1};
-    let source = {name: 'Alex', age: 22};
-    let data = {group: 'ПИб-1', curator: 'Беляков'};
+    let source = {name: 'Alex', data: { age: 22, weight: 78 }};
+    let data = {"id": 666, group: 'ПИб-1', curator: 'Беляков'};
 
     let target = Object.assign(obj, source, data);
 
-    // log(JSON.stringify(target, undefined, 4));
-    log(JSON.stringify(target, ['id', 'name','group'], 4));
+    source.data.age += 1;
+
+    log(JSON.stringify(target, ['id', 'name','group'], 2));
+
+    log(target);
+
+    log(JSON.stringify(target, null, 2));
 }
 
 
-console.clear();
-ex_01();
+// console.clear(); // for Linux
+// ex_01();
 // ex_02();
-// ex_03();
+ex_03();
 
 /*
 Правила преобразования объектов в строку:

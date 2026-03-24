@@ -10,8 +10,8 @@ const ex_01 = function () {
 
     log(target.age); // записалось в оба объекта
     
-    log(`source => ${source.toString()}`);
-    log(`target => ${target.toString()}`);
+    log(`source => ${source}`);
+    log(`target => ${target}`);
 
 }
 
@@ -41,5 +41,5 @@ let target = source; // объекты копируются по ссылке
 
 source.age += 1;
 
-// ex_01();
-ex_02();
+ex_01();
+// ex_02();

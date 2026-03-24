@@ -5,9 +5,17 @@ const log = console.log;
 
 function copy_object(obj) { // копируем содержимое объекта
 	let obj_new = {};
-	for (let key in obj) { // все параметры по отдельности в цикле скопируем
-		obj_new[key] = obj[key]; // присвоим в новый объект - поверхностно (для примитивов)
-	}
+
+	// for (let key in obj) { // все параметры по отдельности в цикле скопируем
+	// 	obj_new[key] = obj[key]; // присвоим в новый объект - поверхностно (для примитивов)
+	// }
+
+    Object
+        .keys(obj)
+        .forEach(key => obj_new[key] = obj[key]); // объекты присваивает по ссылке
+    // можно написать рекурсивный метод копирования
+    // добаться до глубины кождого НЕ примитива
+    // и каждый примитив так скопировать
 	return obj_new;
 }
 
@@ -23,9 +31,9 @@ let target = copy_object(source); // копируем поля объекта в
  
 source.age += 1;
 
-log(`source => ${source.toString()}`);
-log(`target => ${target.toString()}`);
+log(`source => ${source}`);
+log(`target => ${target}`);
 
-for (let item in target) { // проверим перебором
-    log(`item: ${target[item]}`);
+for (let key in target) { // проверим перебором
+    log(`key: ${target[key]}`);
 } // копируются и поля и методы

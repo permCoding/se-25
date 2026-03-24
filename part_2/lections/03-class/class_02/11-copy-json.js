@@ -15,10 +15,10 @@ for (let item in source) { // все поля и методы исходного
     log(`item: ${source[item]}`);
 }
 
-let line = JSON.stringify(source); // объект в строку
-log('line =', line);
+let json = JSON.stringify(source, null, 2); // объект в строку
+log('json =', json);
 
-let target = JSON.parse(line); // затем из строки собрать ДРУГОЙ объект
+let target = JSON.parse(json); // затем из строки собрать ДРУГОЙ объект
 source.age += 1; // изменим значение поля в исходном объекте
 log(target.age);
 

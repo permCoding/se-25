@@ -15,7 +15,7 @@ class Human {
     }
 }
 
-class Student extends Human { // расширение класса
+class Student extends Human { // расширение класса (объекта)
     set group(line) { // свойство
         this._group = line.trim();
     }

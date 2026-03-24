@@ -15,7 +15,7 @@ class Student {
         return`name: ${this.name}, age: ${this.age}` 
     };
     field = () => {
-        
+        // стрелочная функция НЕ пишется в прототип
     }
 }
 
@@ -23,10 +23,15 @@ const st1 = new Student('Петров', 21);
 const st2 = new Student('Петров', 19);
 
 log(st1);
-console.dir(st1);
+console.dir(st1, {}); // второй параметр - опции для настройки что и как выводить
 log(st1 > st2); // с приватными тоже работает
 log(st2 > st1);
 
 const prototype = Object.getPrototypeOf(st1);
 log('Свойства:', Object.getOwnPropertyNames(prototype)); // свойства прототипа
 // Свойства: [ 'constructor', 'valueOf', 'toString' ] - без стрелочного field
+
+// log(Object.getPrototypeOf(prototype));
+
+// Array.prototype.myMethod = function() { }
+// String.prototype.myMethod = function() { }

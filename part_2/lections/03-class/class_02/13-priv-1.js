@@ -11,14 +11,16 @@ class Student {
         this._name = line; // поле _name
     }
     set name(line) { // свойство name
+        // тут можно организовать валидацию
         this._name = line.trim();
     }
     get name() {
         return this._name.trim();
-    }
+    } // .trim() приходится использовать так как
+      // поле _name доступно напрямую
 }
 
-console.clear();
+// console.clear();
 
 let stud = new Student('    Петрович ');
 log(stud); // через конструктор { _name: '    Петрович ' }

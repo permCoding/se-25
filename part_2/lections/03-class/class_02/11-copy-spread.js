@@ -18,8 +18,8 @@ let target = {
  
 source.age += 1;
 
-log(`source => ${source.toString()}`);
-log(`target => ${target.toString()}`);
+log(`source => ${source}`);
+log(`target => ${target}`);
 
 for (let item in target) { // проверим перебором
     log(`${item}: ${target[item]}`);
@@ -28,3 +28,6 @@ for (let item in target) { // проверим перебором
 for (let [key, value] of Object.entries(target)) { // проверим перебором
     log(`${key}: ${value}`);
 } // копируются и поля и методы
+
+log(Object.keys(source));
+log(Object.keys(target));
