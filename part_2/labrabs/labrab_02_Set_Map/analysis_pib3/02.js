@@ -9,16 +9,9 @@ const task_01 = (arr) => {
 const task_02 = (arr) => {
     const obj = {};
     for (let key of arr) {
-        
-        // if (obj[key]) {        // ver 1
-        //     obj[key] += 1;
-        // } else {
-        //     obj[key] = 1;
-        // }
-
-        obj[key] = obj[key]? obj[key]+1: 1; // ver 2
-
-        // ver 3    ||
+        // obj[key] = obj[key]? obj[key]+1: 1; // ver 2
+        obj[key] = (obj[key] || 0) + 1; // ver 3
+                                    // obj[key] = 1; obj[key] += 1;
     }
     log(JSON.stringify(obj, null, 2));
     log(Object.values(obj)); // [1, 3, 1, 1]
