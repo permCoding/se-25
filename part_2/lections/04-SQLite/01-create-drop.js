@@ -1,5 +1,6 @@
-const sqlite3 = require('sqlite3').verbose() // npm install --save sqlite3
+const sqlite3 = require('sqlite3').verbose() // npm install sqlite3
 // режим verbose для подробных сообщений об ошибках
+// при разработке нужен для отладки и контроля, в production - убрать
 
 const eventCreateDB = (err) => {
     if (err) {
