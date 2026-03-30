@@ -1,36 +1,32 @@
 const express = require('express');
 const { HOST, PORT } = { HOST: 'localhost', PORT: 3000 };
+const users = require("./json/users.json"); // данные снаружи
+
 const log = console.log;
 const app = express();
 
-const users = [
-    {id: 1, name: 'Alice'}, 
-    {id: 2, name: 'Bob'}
-];
-
-app.get('/users', (req, res) => {
+app.get('/users', (req, res) => {   // метод GET
     res.json(users);
 }); // http://localhost:3000/users
 
-app.post('/users', (req, res) => {
+app.post('/users/addUser', (req, res) => {   // метод POST
     res
         .status(201)
         .json({message: 'User created'});
 }); // через ThunderClient отправляем POST запрос
 
 app.get('/users/:id', (req, res) => {
-    const userId = req.params.id;
-    log(userId); // для контроля
-    const user = {
-        id: userId, 
-        name: 'User ' + userId
-    };
+    const userId = req.params.id;  // нужна вализация
+    log(`userId = ${userId}`); // для контроля
+    const user = users.find(user => user.id == userId);
+        // нестрогое сравнение, чтобы не переводить строку "2" в число 2
+        // if (user) { } else { } // нужно проверять найденного
     res.json(user);
 }); // http://localhost:3000/users/2
 
 app.get('/', (req, res) => {
     res.send('= USERS = ');
-});
+}); // http://localhost:3000/
 
 app.listen(PORT, HOST, log(`http://${HOST}:3000/`));
 
