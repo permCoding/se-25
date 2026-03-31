@@ -10,6 +10,8 @@ app.get('/users', (req, res) => {   // метод GET
 }); // http://localhost:3000/users
 
 app.post('/users/addUser', (req, res) => {   // метод POST
+    log(req.body);
+    // тут req.body недоступен, так как не включили parser
     res
         .status(201)
         .json({message: 'User created'});
@@ -23,6 +25,7 @@ app.get('/users/:id', (req, res) => {
         // if (user) { } else { } // нужно проверять найденного
     res.json(user);
 }); // http://localhost:3000/users/2
+    // http://localhost:3000/users/group/pinb/2/qweqwweqw
 
 app.get('/', (req, res) => {
     res.send('= USERS = ');
@@ -30,10 +33,12 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, HOST, log(`http://${HOST}:3000/`));
 
-/* 
+
+
+/*    => CRUD-матрица
     эндпойнты: 
-GET  /users     - получить список пользователей
-POST /users     - создать нового пользователя
-GET  /users/:id - получить пользователя по id
-GET  /          - главная страница
+GET  /users             - получить список пользователей
+POST /users/addUser     - создать нового пользователя
+GET  /users/:id         - получить пользователя по id
+GET  /                  - главная страница
 */

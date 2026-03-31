@@ -3,29 +3,36 @@ const log = console.log;
 
 // const HOST = 'localhost', PORT = 3000; // ver.1
 
-// const { HOST, PORT} = require('./config.json').develop; // ver.2
+const { HOST, PORT} = require('./config.json').develop; // ver.2
 
 // .env  // ver.3
-require('dotenv').config();       // npm install dotenv
+// require('dotenv').config();       // npm install dotenv
 // require('dotenv').config({ path: './config/.env' }); // можно менять путь
-const HOST = process.env.HOST || "localhost";
-const PORT = process.env.PORT || 3000;
-
+// const HOST = process.env.HOST || "localhost";
+// const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+// начало секции маршрутизации
 app.get('/users', (req, res) => {
     log(req.protocol, req.ip, req.method, req.url); // убрать в middleware
-    res.json([{id: 1, name: 'Alice'}, {id: 2, name: 'Bob'}]);
-});  // эндпойнт: GET /users
-
+    res.json([{id: 1, name: 'Alice'}, {id: 2, name: '_Bob'}]);
+});  // эндпойнт: GET /users    => http://localhost:3000/users
 
 app.get('/', (req, res) => {
     log(req.protocol, req.ip, req.method, req.url); // убрать в middleware
-    res.send('= USERS = ');
-});  // эндпойнт: GET /
+    res.write('82364923847 2 8237423 \n');
+    res.write('82364923847 2 8237423 ');
+    res.write('82364923847 2 8237423 <br>');
+    res.send();
+});  // эндпойнт: GET /         => http://localhost:3000/
+// окончание секции маршрутизации
 
+// app.listen(PORT);
+// app.listen(PORT, HOST);
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
+
+
 
 /* 
 - содержимое файла .env - он не загружается на GitHub

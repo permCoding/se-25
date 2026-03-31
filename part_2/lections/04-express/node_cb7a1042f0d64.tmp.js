@@ -16,11 +16,10 @@ app.use((req, res, next) => { // middleware
 });
 
 app.post('/users/addUser', (req, res) => {
-    // log(req.body); // через ThunderClient отправляем POST запрос
+    log(req.body); // через ThunderClient отправляем POST запрос
     const { id, name } = req.body; // надо бы контролировать деструктуризацию
-    // валидация
     const newUser = { id, name }; // тут могут быть другие настройки
-    users.push(newUser); // users.push(req.body);
+    users.push(newUser);
     res.status(201).json(users);
 }); // http://localhost:3000/users/addUser
 
