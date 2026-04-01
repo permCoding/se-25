@@ -6,7 +6,7 @@ const log = console.log;
 const { HOST, PORT} = require('./config.json').develop; // ver.2
 
 // .env  // ver.3
-// require('dotenv').config();       // npm install dotenv
+// require('dotenv').config();       // npm i dotenv
 // require('dotenv').config({ path: './config/.env' }); // можно менять путь
 // const HOST = process.env.HOST || "localhost";
 // const PORT = process.env.PORT || 3000;
@@ -21,9 +21,11 @@ app.get('/users', (req, res) => {
 
 app.get('/', (req, res) => {
     log(req.protocol, req.ip, req.method, req.url); // убрать в middleware
+    // res.type('html');
+    res.type('text/plain');
     res.write('82364923847 2 8237423 \n');
-    res.write('82364923847 2 8237423 ');
-    res.write('82364923847 2 8237423 <br>');
+    res.write('82364923847 <br> 2 8237423 ');
+    res.write('82364923847 \n 2 8237423 <br>');
     res.send();
 });  // эндпойнт: GET /         => http://localhost:3000/
 // окончание секции маршрутизации
