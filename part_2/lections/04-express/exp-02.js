@@ -34,10 +34,10 @@ app.get('/', (req, res) => {
 
 // app.listen(PORT, HOST);
 
-// app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
+app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
 
-const print_sersver = () => log(`http://${HOST}:${PORT}/`);
-app.listen(PORT, HOST, print_sersver);
+// const print_sersver = () => log(`http://${HOST}:${PORT}/`);
+// app.listen(PORT, HOST, print_sersver);
 
 /* 
 - содержимое файла .env - он не загружается на GitHub
