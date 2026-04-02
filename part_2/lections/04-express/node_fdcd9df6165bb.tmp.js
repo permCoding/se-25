@@ -16,7 +16,7 @@ const app = express();
 // начало секции маршрутизации
 app.get('/users', (req, res) => {
     log(req.protocol, req.ip, req.method, req.url); // убрать в middleware
-    res.json([{id: 1, name: 'Alice'}, {id: 2, name: '_Bob'}]); // API web-service
+    res.json([{id: 1, name: 'Alice'}, {id: 2, name: '_Bob'}]);
 });  // эндпойнт: GET /users    => http://localhost:3000/users
 
 app.get('/', (req, res) => {

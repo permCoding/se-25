@@ -4,7 +4,12 @@ const app = express();
 
 app.listen(3000);
 
-/*
+/*    http://localhost:3000/
+
+http://tasks.1gb.ru:42089/104
+
+https://www.chitai-gorod.ru/catalog/books/dlya-2-klassa-111107
+
 - создаёт и запускает HTTP-сервер 
 - включает прослушивание входящих соединений по указанному порту
 
