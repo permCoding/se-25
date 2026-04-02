@@ -12,6 +12,8 @@ app.use((req, res, next) => { // middleware
 
 app.get('/users', (req, res) => { res.json(users); });
 
-app.get('/', (req, res) => { res.send('= USERS = '); });
+app.get('/', (req, res) => { res.send('<b>= USERS = </>'); });
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
+
+// ThunderClient

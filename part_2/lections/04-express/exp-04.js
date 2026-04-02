@@ -5,22 +5,28 @@ const users = require("./json/users.json"); // данные снаружи
 const log = console.log;
 const app = express();
 
+app.use((req, res, next) => { // middleware
+    log(req.params, req.query, req.body); // тут нет данных пока
+    next();
+});
+
 app.get('/users', (req, res) => {   // метод GET
-    res.json(users);
+    res
+        .status(200)
+        .json(users);
 }); // http://localhost:3000/users
 
 app.post('/users/addUser', (req, res) => {   // метод POST
-    log(req.body);
     // тут req.body недоступен, так как не включили parser
     res
         .status(201)
         .json({message: 'User created'});
 }); // через ThunderClient отправляем POST запрос
 
+// '/users/:id/:name/:len'
 app.get('/users/:id', (req, res) => {
-    const userId = req.params.id;  // нужна вализация
-    log(`userId = ${userId}`); // для контроля
-    const user = users.find(user => user.id == userId);
+    log(req.params.id, req.query, req.body);
+    const user = users.find(user => user.id == req.params.id); // нужна вализация
         // нестрогое сравнение, чтобы не переводить строку "2" в число 2
         // if (user) { } else { } // нужно проверять найденного
     res.json(user);

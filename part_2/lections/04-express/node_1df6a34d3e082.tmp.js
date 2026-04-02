@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true })); // для парсинга form
 // });
 
 app.post('/users/addUser', (req, res) => {
-    log(req.body); // через ThunderClient отправляем POST запрос
+    // log(req.body); // через ThunderClient отправляем POST запрос
     const { id, name } = req.body; // надо бы контролировать деструктуризацию
     // валидация
     const newUser = { id, name }; // тут могут быть другие настройки
@@ -25,7 +25,7 @@ app.post('/users/addUser', (req, res) => {
     res.status(201).json(users);
 }); // http://localhost:3000/users/addUser
 
-app.get('/users/order', (req, res) => { // req.query
+app.get('/users/order/', (req, res) => { // req.query
     log(req.query);
     const field = req.query.field; // нужна вализация
     const direct = req.query.direct === 'asc'? +1: -1;
