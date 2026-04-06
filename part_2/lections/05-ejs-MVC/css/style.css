@@ -97,6 +97,25 @@ textarea {
     color: #000;
     border: solid 2px #3acc88;
 }
+.blue { 
+    color:#eeeeff;
+    cursor:pointer;
+    font-size:0.9em;
+    font-weight: 600;
+    font-family: serif;
+    border: solid 2px #3a68cc;
+    border-radius:6px;
+    background:#3a68cc;
+    width: 180px;
+    height: 38px;
+    margin-top: 5px;
+    padding: 5px 11px;
+}
+.blue:hover {
+    background:rgb(230, 241, 255);
+    color: #206;
+    border: solid 2px #206;
+}
 .value { 
     color:#000000;
     font-size: 1.0em;

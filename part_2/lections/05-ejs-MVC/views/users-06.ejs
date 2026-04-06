@@ -10,10 +10,14 @@
 <body>
 
     <div>
-        <h3>Абитуриенты</h3>
+        <% if (field) { %>
+            <h3>Абитуриенты (<%= field %>; <%= direct %>):</h3>
+        <% } else { %>
+            <h3>Абитуриенты:</h3>
+        <% } %>
         
         <% arrayUsers.forEach( user => { %>
-            <% let listClass = (+user.rating > 190)? 'list-green': 'list-red'; %>
+            <% let listClass = (+user.rating > limit)? 'list-green': 'list-red'; %>
             <li class="<%= listClass %>">
                 <%= user.lastName %> 
                 <%= user.firstName %> 
