@@ -1,7 +1,7 @@
 const express = require('express'); // npm i express
 const ejs = require('ejs'); // npm i ejs
 const { HOST, PORT } = require('./config.json').hosting;
-const users = require('./json/users.json');
+const users = require('./json/users.json'); // данные пока прямо в управляющем файле
 const log = console.log;
 
 const getModel = (field, direct='asc') => {
@@ -12,6 +12,7 @@ const getModel = (field, direct='asc') => {
 }
 
 const app = express();
+
 app.set('view engine', 'ejs');
 app.use('/css', express.static('css'));
 

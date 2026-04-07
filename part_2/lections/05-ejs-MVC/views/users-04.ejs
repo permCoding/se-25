@@ -8,9 +8,10 @@
 </head>
 
 <body>
+    <div class="indent-div">
 
     <div>
-        <h3>Абитуриенты</h3>
+        <h3>Абитуриенты (всего - <%= arrayUsers.length %>)</h3>
         
         <% arrayUsers.forEach( user => { %>
             <% let listClass = (+user.rating > 190)? 'list-green': 'list-red'; %>
@@ -49,6 +50,7 @@
             <button class="blue">НА ГЛАВНУЮ</button>
         </a>
     </div>
-
+    
+    </div>
 </body>
 </html>

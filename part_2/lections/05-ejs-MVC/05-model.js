@@ -5,18 +5,25 @@ const { getSortedUsers, getUsers } = require('./models/model');
 const log = console.log;
 
 const app = express();
+
 app.set('view engine', 'ejs');
 app.use('/css', express.static('css'));
 
-app.get('/order/:field/:direct', (req, res) => {
+app.use((req, res, next) => {
     res.set('Content-Type', 'text/html; charset=utf-8');
+    next();
+}); // тут актуально - если по всем маршрутам html
+
+app.get('/order/:field/:direct', (req, res) => {
     const { field, direct } = req.params.field; // нужна валидация
-    res.render('users-04', getSortedUsers(field, direct));
+    log(req.params);
+    const obj = getSortedUsers(field, direct); 
+    // log(obj);
+    res.render('users-04', obj);
 });
 
 app.get('/', (req, res) => {
-    res.set('Content-Type', 'text/html; charset=utf-8');
-    res.render('users-04', getUsers()); // res.render('users-04', 
+    res.render('users-04', getUsers());
 });
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));

@@ -156,3 +156,7 @@ textarea {
     color: #000;
     border: solid 1px #eb4b4b;
 }
+.indent-div {
+    margin-left: 150px;
+    width: 400px;
+}
