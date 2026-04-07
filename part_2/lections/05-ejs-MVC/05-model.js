@@ -16,10 +16,7 @@ app.use((req, res, next) => {
 
 app.get('/order/:field/:direct', (req, res) => {
     const { field, direct } = req.params.field; // нужна валидация
-    log(req.params);
-    const obj = getSortedUsers(field, direct); 
-    // log(obj);
-    res.render('users-04', obj);
+    res.render('users-04', getSortedUsers(field, direct));
 });
 
 app.get('/', (req, res) => {

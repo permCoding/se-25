@@ -12,3 +12,12 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}/`));
+
+// express()
+//     .get('/', (req, res) => {
+//         res.set('Content-Type', 'text/html; charset=utf-8');
+//         res.send(ejs.render(view, user));
+//     })
+//     .listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}/`));
+
+// можно заменять содержимое шаблона и регулярками и просто методами JS 

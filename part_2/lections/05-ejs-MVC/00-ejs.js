@@ -6,11 +6,13 @@ const app = express();
 
 const view = `
     <body style="background-color: lightblue;">
+        <h2> <%= id %> </h2>
         <h2> <%= lastName %> </h2>
     </body>`; // шаблон представления данных
+
 const user = { 'id': 123, 'lastName': 'Иванов' }; // данные
 
-app.get('/', (req, res) => {
+app.get(['/', '*'], (req, res) => {
     let html = ejs.render(view, user); // заполним шаблон данными
     console.log(html);
 

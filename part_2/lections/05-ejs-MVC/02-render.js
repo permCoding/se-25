@@ -1,5 +1,5 @@
 const express = require('express'); // npm i express
-// const ejs = require('ejs'); // не обязательно, сам ищет - если установлено npm i ejs
+const ejs = require('ejs'); // не обязательно, сам ищет - если установлено npm i ejs
 const { HOST, PORT } = require('./config.json').hosting;
 const users = require('./json/users.json');
 const log = console.log;
@@ -9,15 +9,16 @@ const app = express();
 app.set('views', './views'); // можно указать где лежат шаблоны
 // это НЕобязательно, если папка стандартная `./views`
 
-// app.set('view engine', 'ejs'); // нужен когда НЕ указано расширение users-02.ejs
+app.set('view engine', 'ejs'); // нужен когда НЕ указано расширение users-02.ejs
 
 app.use('/css', express.static('css')); // путь к статичным файлам
+// указанная папка становится публичной
 
 app.get('/', (req, res) => {
     res.set('Content-Type', 'text/html; charset=utf-8');
-    res.render('users-02.ejs', users[0]);
+    res.render('users-02.ejs', users[3]); // рассмотреть ejs
     // res.render('users-02', users[0]);
-});
+}); // nodemon - для автоматического перезапуска проекта
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
 

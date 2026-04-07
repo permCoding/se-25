@@ -25,7 +25,7 @@ app.get('/order/:field/:direct', (req, res) => {
 
 app.get('/', (req, res) => {
     res.set('Content-Type', 'text/html; charset=utf-8');
-    res.render('users-04', { "arrayUsers": users }); // res.render('users-04', 
+    res.render('users-04', { "arrayUsers": users });
 });
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
