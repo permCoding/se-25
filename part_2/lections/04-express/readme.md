@@ -75,3 +75,18 @@ mimeTypes.
 3. **Абсолютный путь**: Использование `__dirname` помогает гарантировать, что даже при смене названия рабочего каталога не возникнет ошибки при обращении к файлам.  
 
 ---  
+
+```bash
+curl -X GET http://localhost:3000/users 
+
+curl -X POST http://localhost:3000/users/addUser \
+  -H "Content-Type: application/json" \
+  -d '{ 
+    "id": 1002,
+    "name": "White Rabbit"
+}'
+
+curl -X POST http://localhost:3000/users/addUser \
+  -H "Content-Type: application/json" \
+  -d '{ "id": 1002, "name": "White Rabbit" }'
+```
