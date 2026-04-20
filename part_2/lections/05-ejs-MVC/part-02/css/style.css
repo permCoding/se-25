@@ -39,10 +39,13 @@ td.item {
     padding-left: 15px;
 }
 .citata {
-    font-size: 1.5em;
+    font-size: 1.0em;
     align-items: center;
     justify-content: center;
     color: #567572;
+    margin-left: 15%;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 .inp {
     width: 250px;
@@ -69,7 +72,7 @@ td.item {
 .select-wrapper {
     position: relative;
     display: inline-block;
-    width: 200px; /* Ширина обертки */
+    width: 300px; /* Ширина обертки */
 }
 .select-wrapper select {    /* Стили для самого селекта */
     appearance: none; /* Убираем стандартный стиль браузера */
@@ -133,4 +136,8 @@ td.item {
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
     font-weight: 600;
+}
+.radio {
+    text-align: left;
+    margin-left: 40px;
 }

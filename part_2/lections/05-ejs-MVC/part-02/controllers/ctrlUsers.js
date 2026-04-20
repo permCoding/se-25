@@ -1,4 +1,4 @@
-const { getSortedUsers, getUsers } = require('../models/mUsers');
+const { getSortedUsers, getUsers, saveUsersToJSON } = require('../models/mUsers');
 
 const getModel = (req) => {
     return { 
@@ -21,9 +21,17 @@ const mainUsers = (req, res) => {
     res.render('vUsers', model);
 };
 
+const saveUsers = (req, res) => {
+    const model = getModel(req);
+    model.arrayUsers = getUsers();
+    saveUsersToJSON();
+    res.render('vUsers', model);
+};
+
 module.exports = {
     mainUsers,
-    orderUsers
+    orderUsers,
+    saveUsers
 };
 
 /*

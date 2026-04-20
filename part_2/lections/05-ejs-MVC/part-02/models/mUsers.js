@@ -1,27 +1,27 @@
 const users = require('../json/users.json');
-// const fs = require('fs');
-// const path = require('path');
-
-// const check = (a, b) => +a.rating - +b.rating;
+const fs = require('fs');
+const path = require('path');
+const usersPath = path.join(__dirname, '../json/users.json');
 
 const getSortedUsers = (field, direct='asc') => {
-    // const usersPath = path.join(__dirname, '../json/users.json');
-    // const usersData = fs.readFileSync(usersPath, 'utf8');
-    // const users = JSON.parse(usersData);
+    // const users = JSON.parse( fs.readFileSync(usersPath, 'utf8') );
 
     const d = direct == 'asc'? +1: -1;
     return users.toSorted((a, b) => { 
-            if (a[field] < b[field]) return -d;
-            if (a[field] > b[field]) return d;
-            return 0;
-        })
+        if (a[field] < b[field]) return -d;
+        if (a[field] > b[field]) return d;
+        return 0;
+    })
 }
 
-const getUsers = () => {
-    return [...users];
+const getUsers = () => [...users];
+
+const saveUsersToJSON = () => {
+    fs.writeFileSync(usersPath, JSON.stringify(users, null, 2), 'utf8');
 }
 
 module.exports = {
     getSortedUsers,
-    getUsers
+    getUsers,
+    saveUsersToJSON
 };
