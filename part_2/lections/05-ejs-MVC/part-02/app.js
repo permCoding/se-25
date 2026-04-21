@@ -12,8 +12,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use('/css', express.static('css'));
 
-app.use(express.json()); // читать объекты в POST
-app.use(express.urlencoded({ extended: true })); // объекты с ejs-шаблона
+app.use(express.json()); // строку JSON в объект и добавл его в req.body
+app.use(express.urlencoded({ extended: true })); // для HTML-формы с <form method="POST"> и curl с -d "key=value"
 
 app.use(mwUsers.logger);
 app.use(mwUsers.setCharset);
@@ -22,6 +22,23 @@ app.use(['/users','/'], rUsers); // подключили роутер
 app.use(mwUsers.notFound);  // 404
 
 app.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}/`));
+
+
+/* => алгоритм express.json():
+- принимает request POST с заголовком Content-Type: application/json
+- парсит строку запроса, переводит JSON-строку в JavaScript-объект
+- добавляет его к req.body 
+
+   => алгоритм express.urlencoded({ extended: true }):
+- принимает request POST с заголовком Content-Type: application/x-www-form-urlencoded
+- собирает данные с HTML-формы в объект req.body
+
+extended: true - позволяет передавать вложенные объекты 
+  user[name]=Иван&user[age]=25  =>  { user: { name: 'Иван', age: 25 } }
+extended: false - позволяет передавать простые объекты - пары ключ-значение
+  name=Иван&age=25  =>  { name: 'Иван', age: 25 }
+*/
+
 
 /*
 curl -X GET http://localhost:3000/users
