@@ -3,7 +3,7 @@ const rUser = require('./routers/rUser');
 const rUsers = require('./routers/rUsers');
 const mwUsers = require('./middlewares/mwUsers');
 const path = require('path');
-const { HOST, PORT } = require('./config.json').hosting;
+const { HOST, PORT } = require('./config.json').hosting.development;
 
 const app = express();
 
