@@ -47,53 +47,32 @@ const createTable = () => {
             "city"    TEXT, \
             PRIMARY KEY("id" AUTOINCREMENT) \
         )'
-    db.run(query)
-    db.close()
-}
-
-const createTableFull = () => {
-    let query = ` \
-        CREATE TABLE IF NOT EXISTS "abiturs" ( \
-            "id"    INTEGER, \
-            "lastName"    TEXT, \
-            "rating"    INTEGER, \
-            "gender"    INTEGER, \
-            "birthDate"    TEXT, \
-            "city"    TEXT, \
-            PRIMARY KEY("id" AUTOINCREMENT) \
-        )`
-
-    db.serialize(() => { // запросы будут выполняться последовательно
-        db.run(query, eventCreateTable)
-        db.close(eventCloseDB) // обязательно закрываем соединение
-    })
+    db.run(query, (err) => {
+        eventCreateTable(err);
+        db.close(eventCloseDB);  // закрываем после создания таблицы
+    });
 }
 
 const dropTable = () => {
     let query = "DROP TABLE IF EXISTS abiturs"
-    db.serialize(() => { // запросы будут выполняться последовательно
-        db.run(query)
-        db.close(event)
-    })
+    db.run(query)
+    db.close(event)
 }
 
 const deleteFromTable = () => {
     let query = "DELETE FROM abiturs WHERE rating = 'error'"
-    db.serialize(() => {
-        db.run(query)
-        db.close(event)
-    })
-}
-
-
+    db.run(query)
+    db.close(event)
+} // db.run выполнится полностью ДО db.close, это встроено в библиотеку
 
 // = = = = = = = = = = = = = = = 
 
 const dbPath = './data/db_test.sqlite3'
-// const db = new sqlite3.Database(dbPath) // Создаем новую базу данных (или открываем существующую)
+
+// создаем новую базу данных или открываем существующую
+// const db = new sqlite3.Database(dbPath) 
 const db = new sqlite3.Database(dbPath, eventCreateDB)
 
 // createTable()
-// createTableFull()
-// dropTable()
-deleteFromTable()
+dropTable()
+// deleteFromTable()
