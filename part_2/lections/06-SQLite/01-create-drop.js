@@ -56,14 +56,26 @@ const createTable = () => {
 const dropTable = () => {
     let query = "DROP TABLE IF EXISTS abiturs"
     db.run(query)
-    db.close(event)
-}
+    db.close(eventCloseDB)
+} // проверить sqlite_sequence - последний добавленный id НЕ хранится
 
 const deleteFromTable = () => {
     let query = "DELETE FROM abiturs WHERE rating = 'error'"
     db.run(query)
-    db.close(event)
+    db.close(eventCloseDB)
 } // db.run выполнится полностью ДО db.close, это встроено в библиотеку
+
+const deleteAllFromTable = () => {
+    let query = "DELETE FROM abiturs"
+    db.run(query, (err) => {
+        if (err) {
+            console.error(err.message)
+        } else {
+            console.log("Удалены все записи.")
+        }
+        db.close(eventCloseDB)
+    })
+} // проверить sqlite_sequence - последний добавленный id хранится
 
 // = = = = = = = = = = = = = = = 
 
@@ -74,5 +86,6 @@ const dbPath = './data/db_test.sqlite3'
 const db = new sqlite3.Database(dbPath, eventCreateDB)
 
 // createTable()
-dropTable()
-// deleteFromTable()
+// dropTable()
+deleteFromTable()
+// deleteAllFromTable()

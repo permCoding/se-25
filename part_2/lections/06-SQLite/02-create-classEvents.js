@@ -1,4 +1,4 @@
-const sqlite3 = require('sqlite3').verbose() // npm install sqlite3
+const sqlite3 = require('sqlite3').verbose()
 const { Events } = require('./classEvents')
 const events = new Events()
 
@@ -15,7 +15,7 @@ const queryCreateTable = `
     )`
 const queryDropTable = "DROP TABLE IF EXISTS abiturs"
 const queryDeleteFromTable = "DELETE FROM abiturs WHERE rating = 'error'"
-const queryDeleteById = "DELETE FROM abiturs WHERE id = 26"
+const queryDeleteById = "DELETE FROM abiturs WHERE id = 27"
 // = = = = = = = = = = = = = = = 
 
 const runQuery = (query, handleError) => {
