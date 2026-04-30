@@ -1,0 +1,18 @@
+[
+    { 
+        "lastName": "Иванов", 
+        "rating": 250, 
+        "gender": true, 
+        "birthDate": "2000-05-15", 
+        "city": "Москва" 
+    },
+    { 
+        "lastName": "Петрова", "rating": 230, "gender": false, "birthDate": "2001-08-22", "city": "Москва" 
+    },
+    { 
+        "lastName": "Сидоров", "rating": 210, "gender": true, "birthDate": "1999-12-10", "city": "Питер" 
+    },
+    { 
+        "lastName": "Козлова", "rating": 240, "gender": false, "birthDate": "2000-03-18", "city": "Питер" 
+    }
+]
