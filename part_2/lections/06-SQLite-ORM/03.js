@@ -42,6 +42,17 @@ async function findTopByRating(limit=1) {
     return usersTop;
 }
 
+async function findRatingByCity() {
+    const query = `
+        SELECT city, COUNT(*) as count, AVG(rating) as avg_rating
+        FROM abiturs
+        GROUP BY city
+        HAVING COUNT(*) > 1`;
+    const results = await sequelize
+        .query(query, { type: Sequelize.QueryTypes.SELECT });
+    return results;
+}
+
 async function main() {
     try {
         await sequelize.authenticate(); // проверка подключения
@@ -61,19 +72,32 @@ async function main() {
         await updateRatingByLastName('Иванов', 252);
         await deleteRecordByLastName('Козлова');
 
-        ['Иванов', 'Козлова', 'Сидоров']
-            .forEach(async lastName => {
-                const findUser = await findRecordByLastName(lastName);
-                if (!findUser) {
-                    log(`--- Запись не найдена: ${lastName}`);
-                } else {
-                    log(`--- Найдена запись: ${lastName}, рейтинг: ${findUser.rating}`);
-                }
-        });
+        // ['Иванов', 'Козлова', 'Сидоров']
+        //     .forEach(async lastName => {
+        //         const findUser = await findRecordByLastName(lastName);
+        //         if (!findUser) {
+        //             log(`--- Запись не найдена: ${lastName}`);
+        //         } else {
+        //             log(`--- Найдена запись: ${lastName}, рейтинг: ${findUser.rating}`);
+        //         }
+        // });
+        // forEach() не ждёт выполнения асинхронных функций, 
+        // запусает все и идёт дальше, не дожидаясь результата.
+
+        for (let lastName of ['Иванов', 'Козлова', 'Сидоров']) {
+            const findUser = await findRecordByLastName(lastName);
+            if (!findUser) {
+                log(`--- Запись не найдена: ${lastName}`);
+            } else {
+                log(`--- Найдена запись: ${lastName}, рейтинг: ${findUser.rating}`);
+            }
+        }
 
         const topUsers = await findTopByRating(); // можно установить сколько
-        log(JSON.stringify(topUsers, null, 2));
+        log("findTopByRating -", JSON.stringify(topUsers, null, 2));
 
+        const r = await findRatingByCity();
+        log("findRatingByCity -", JSON.stringify(r, null, 2));
     } catch (error) {
         log(error.message);
     }
