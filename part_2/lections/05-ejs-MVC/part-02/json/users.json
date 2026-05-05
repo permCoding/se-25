@@ -54,5 +54,11 @@
     "firstName": "Андрей",
     "lastName": "Беляков",
     "rating": "194"
+  },
+  {
+    "id": "10",
+    "firstName": "Кекс",
+    "lastName": "Куков",
+    "rating": "222"
   }
 ]

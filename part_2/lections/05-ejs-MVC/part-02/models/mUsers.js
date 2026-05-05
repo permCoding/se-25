@@ -14,7 +14,7 @@ const getSortedUsers = (field, direct='asc') => {
     })
 }
 
-const getUsers = () => [...users];
+const getUsers = () => [...users]; // независимый клон массива данных
 
 const saveUsersToJSON = () => {
     fs.writeFileSync(usersPath, JSON.stringify(users, null, 2), 'utf8');
